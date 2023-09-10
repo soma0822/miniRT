@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   ft_print_world.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 14:42:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/10 22:19:45 by soma             ###   ########.fr       */
+/*   Created: 2023/09/10 22:04:33 by soma              #+#    #+#             */
+/*   Updated: 2023/09/10 22:20:58 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INCLUDE_H
-# define INCLUDE_H
+#include "mini_rt.h"
+#include "include.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include "libft.h"
-# include "get_next_line.h"
-# include "read_map.h"
-# include "utils.h"
-# include "parse.h"
-# include "debug.h"
-
-
-#endif
+void	ft_print_world(t_world *world)
+{
+	ft_print_ambient(world->ambient);
+	ft_print_camera(world->camera);
+	ft_print_light(world->light);
+	ft_print_object(world->objects);
+}

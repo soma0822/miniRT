@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   parse_ambient.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 14:23:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/10 22:45:54 by soma             ###   ########.fr       */
+/*   Created: 2023/09/10 18:50:19 by soma              #+#    #+#             */
+/*   Updated: 2023/09/10 21:13:04 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
 
-t_world	*read_map(char *file_name)
+int	parse_ambient(char **split, t_world *world)
 {
-	int		fd;
-	char	*line;
-	t_world	*world;
+	t_ambient	*ambient;
 
-	world = (t_world *)ft_calloc(sizeof(t_world), 1);
-	if (world == NULL)
+	if (world->ambient != NULL)
+		ft_error("Ambient light already exists!\n");
+	ambient = (t_ambient *)malloc(sizeof(t_ambient));
+	if (ambient == NULL)
 		ft_error("Memory allocation error!\n");
-	fd = open(file_name, O_RDONLY);
-	if (fd == -1)
-		ft_error("File open error!\n");
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-		if (parse_map(line, world) == 1)
-			ft_error("Map error!\n");
-	}
-	close(fd);
-	return (world);
+	if (ft_split_length(split) != 3)
+		return (1);
+	ambient->ratio = ft_atof(split[1]);
+	if (ambient->ratio < 0 || ambient->ratio > 1)
+		ft_error("Ambient ratio error!\n");
+	ambient->color = parse_color(split[2]);
+	world->ambient = ambient;
+	return (0);
 }

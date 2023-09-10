@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   ft_print_color.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 14:42:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/10 22:19:45 by soma             ###   ########.fr       */
+/*   Created: 2023/09/10 22:11:40 by soma              #+#    #+#             */
+/*   Updated: 2023/09/10 22:20:39 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INCLUDE_H
-# define INCLUDE_H
+#include "mini_rt.h"
+#include "include.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include "libft.h"
-# include "get_next_line.h"
-# include "read_map.h"
-# include "utils.h"
-# include "parse.h"
-# include "debug.h"
-
-
-#endif
+void	ft_print_color(t_color *color)
+{
+	printf("  color: %d,%d,%d\n", color->r, color->g, color->b);
+}

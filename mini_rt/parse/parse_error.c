@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   parse_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 14:42:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/10 22:19:45 by soma             ###   ########.fr       */
+/*   Created: 2023/09/10 21:36:40 by soma              #+#    #+#             */
+/*   Updated: 2023/09/10 21:39:22 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INCLUDE_H
-# define INCLUDE_H
+#include "mini_rt.h"
+#include "include.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include "libft.h"
-# include "get_next_line.h"
-# include "read_map.h"
-# include "utils.h"
-# include "parse.h"
-# include "debug.h"
-
-
-#endif
+int	parse_error(char **split, t_world *world)
+{
+	(void)split;
+	(void)world;
+	ft_error("Type error!\n");
+	return (0);
+}

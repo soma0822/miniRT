@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   init_element.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 14:42:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/10 22:19:45 by soma             ###   ########.fr       */
+/*   Created: 2023/09/10 17:15:52 by soma              #+#    #+#             */
+/*   Updated: 2023/09/10 22:00:34 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INCLUDE_H
-# define INCLUDE_H
+#include "mini_rt.h"
+#include "include.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include "libft.h"
-# include "get_next_line.h"
-# include "read_map.h"
-# include "utils.h"
-# include "parse.h"
-# include "debug.h"
-
-
-#endif
+void	init_element(char element[6][3])
+{
+	ft_strlcpy(element[0], "A", 3);
+	ft_strlcpy(element[1], "C", 3);
+	ft_strlcpy(element[2], "L", 3);
+	ft_strlcpy(element[3], "sp", 3);
+	ft_strlcpy(element[4], "pl", 3);
+	ft_strlcpy(element[5], "cy", 3);
+}

@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   parse_light.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 14:45:10 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/10 17:28:32 by soma             ###   ########.fr       */
+/*   Created: 2023/09/10 21:39:33 by soma              #+#    #+#             */
+/*   Updated: 2023/09/10 21:42:04 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
 
-int	ft_error(char *error_mes)
+int	parse_light(char **split, t_world *world)
 {
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(error_mes, 2);
-	exit(1);
-	return (1);
+	t_light	*light;
+
+	if (ft_split_length(split) != 4)
+		ft_error("Light error!\n");
+	light = ft_calloc(sizeof(t_light), 1);
+	if (light == NULL)
+		ft_error("Malloc failed!\n");
+	light->pos = parse_vector(split[1]);
+	light->ratio = ft_atof(split[2]);
+	light->color = parse_color(split[3]);
+	world->light = light;
+	return (0);
 }

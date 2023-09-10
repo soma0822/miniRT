@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   parse_cylinder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 14:23:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/10 22:45:54 by soma             ###   ########.fr       */
+/*   Created: 2023/09/10 21:22:05 by soma              #+#    #+#             */
+/*   Updated: 2023/09/10 22:22:19 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
 
-t_world	*read_map(char *file_name)
+int	parse_cylinder(char **split, t_world *world)
 {
-	int		fd;
-	char	*line;
-	t_world	*world;
+	t_object	*cylinder;
 
-	world = (t_world *)ft_calloc(sizeof(t_world), 1);
-	if (world == NULL)
+	if (ft_split_length(split) != 6)
+		return (1);
+	cylinder = ft_calloc(sizeof(t_object), 1);
+	if (cylinder == NULL)
 		ft_error("Memory allocation error!\n");
-	fd = open(file_name, O_RDONLY);
-	if (fd == -1)
-		ft_error("File open error!\n");
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-		if (parse_map(line, world) == 1)
-			ft_error("Map error!\n");
-	}
-	close(fd);
-	return (world);
+	cylinder->type = CYLINDER;
+	cylinder->pos = parse_vector(split[1]);
+	cylinder->dir = parse_vector(split[2]);
+	cylinder->diameter = ft_atof(split[3]);
+	cylinder->height = ft_atof(split[4]);
+	cylinder->color = parse_color(split[5]);
+	ft_lstadd_back(&world->objects, cylinder);
+	return (0);
 }

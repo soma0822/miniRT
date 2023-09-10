@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   parse_sphere.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 14:45:10 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/10 17:28:32 by soma             ###   ########.fr       */
+/*   Created: 2023/09/10 21:44:28 by soma              #+#    #+#             */
+/*   Updated: 2023/09/10 21:48:01 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
 
-int	ft_error(char *error_mes)
+int	parse_sphere(char **split, t_world *world)
 {
-	ft_putstr_fd("Error\n", 2);
-	ft_putstr_fd(error_mes, 2);
-	exit(1);
-	return (1);
+	t_object	*sphere;
+
+	if (ft_split_length(split) != 4)
+		ft_error("Sphere error!\n");
+	sphere = ft_calloc(sizeof(t_object), 1);
+	if (!sphere)
+		ft_error("Malloc failed!\n");
+	sphere->type = SPHERE;
+	sphere->pos = parse_vector(split[1]);
+	sphere->diameter = ft_atof(split[2]);
+	sphere->color = parse_color(split[3]);
+	ft_lstadd_back(&world->objects,  sphere);
+	return (0);
 }

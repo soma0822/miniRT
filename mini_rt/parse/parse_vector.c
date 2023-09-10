@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   read_map.c                                         :+:      :+:    :+:   */
+/*   parse_vector.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 14:23:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/10 22:45:54 by soma             ###   ########.fr       */
+/*   Created: 2023/09/10 21:16:16 by soma              #+#    #+#             */
+/*   Updated: 2023/09/10 22:21:39 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
 
-t_world	*read_map(char *file_name)
+t_vector	*parse_vector(char *str)
 {
-	int		fd;
-	char	*line;
-	t_world	*world;
+	char		**split;
+	t_vector	*vector;
 
-	world = (t_world *)ft_calloc(sizeof(t_world), 1);
-	if (world == NULL)
+	split = ft_split(str, ',');
+	if (split == NULL)
 		ft_error("Memory allocation error!\n");
-	fd = open(file_name, O_RDONLY);
-	if (fd == -1)
-		ft_error("File open error!\n");
-	while (1)
-	{
-		line = get_next_line(fd);
-		if (line == NULL)
-		if (parse_map(line, world) == 1)
-			ft_error("Map error!\n");
-	}
-	close(fd);
-	return (world);
+	vector = ft_calloc(sizeof(t_vector), 1);
+	if (vector == NULL)
+		ft_error("Memory allocation error!\n");
+	if (ft_split_length(split) != 3)
+		ft_error("Vector format error!\n");
+	vector->x = ft_atof(split[0]);
+	vector->y = ft_atof(split[1]);
+	vector->z = ft_atof(split[2]);
+	ft_free_twod_array(split);
+	return (vector);
 }

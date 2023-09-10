@@ -13,6 +13,10 @@ AR = ar rcs
 CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
 
+ifeq ($(MAKECMDGOALS), debug)
+CFLAGS += -fsanitize=address -g
+endif
+
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
@@ -31,3 +35,5 @@ fclean:	clean
 re:	fclean $(NAME)
 
 .PHONY: all, clean, fclean, re
+
+debug: re

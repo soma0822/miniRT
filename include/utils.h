@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:44:40 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/10 15:00:03 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/10 21:57:57 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,12 @@
 
 # include "include.h"
 
+double	ft_atof(char *nbr);
+int	ft_error(char *error_mes);
+void	ft_free_twod_array(char **array);
+int	ft_isspace(char c);
+void	ft_lstadd_back(t_object **lst, t_object *new_lst);
+int	ft_split_length(char **split);
 
-void	ft_error(char *error_mes);
 
 #endif
