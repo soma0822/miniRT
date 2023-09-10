@@ -6,7 +6,7 @@
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:23:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/10 22:45:54 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/10 22:49:30 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_world	*read_map(char *file_name)
 	{
 		line = get_next_line(fd);
 		if (line == NULL)
+			break ;
 		if (parse_map(line, world) == 1)
 			ft_error("Map error!\n");
 	}
