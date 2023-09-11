@@ -1,6 +1,6 @@
 NAME = miniRT
 
-# main.c + find mini_rt/*/*.c | sed 's/\.c/\.c \\/g'
+# main.c + find mini_rt/*/*.c | sed 's/\.c/\.c \\/g' | pbcopy
 
 SRCS = main2.c\
 mini_rt/color/color.c \
@@ -14,6 +14,8 @@ mini_rt/debug/ft_print_vector.c \
 mini_rt/debug/ft_print_world.c \
 mini_rt/gnl/get_next_line.c \
 mini_rt/gnl/get_next_line_utils.c \
+mini_rt/mlx_utils/close_hook.c \
+mini_rt/mlx_utils/esc_hook.c \
 mini_rt/parse/parse_ambient.c \
 mini_rt/parse/parse_camera.c \
 mini_rt/parse/parse_color.c \
@@ -34,7 +36,9 @@ mini_rt/utils/ft_isspace.c \
 mini_rt/utils/ft_lstadd_back.c \
 mini_rt/utils/ft_split_length.c \
 mini_rt/vector/vector_advanced.c \
-mini_rt/vector/vector_basic.c
+mini_rt/vector/vector_basic.c \
+
+
 
 INCLUDE = include/
 
@@ -63,6 +67,8 @@ mini_rt/debug/ft_print_vector.c \
 mini_rt/debug/ft_print_world.c \
 mini_rt/gnl/get_next_line.c \
 mini_rt/gnl/get_next_line_utils.c \
+mini_rt/mlx_utils/close_hook.c \
+mini_rt/mlx_utils/esc_hook.c \
 mini_rt/parse/parse_ambient.c \
 mini_rt/parse/parse_camera.c \
 mini_rt/parse/parse_color.c \
@@ -83,7 +89,9 @@ mini_rt/utils/ft_isspace.c \
 mini_rt/utils/ft_lstadd_back.c \
 mini_rt/utils/ft_split_length.c \
 mini_rt/vector/vector_advanced.c \
-mini_rt/vector/vector_basic.c
+mini_rt/vector/vector_basic.c 
+
+
 endif
 
 LIB_PATH = libft/libft.a

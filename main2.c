@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:44:36 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 15:09:03 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 16:48:39 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ int	main(void)
 	raytracing(&world);
 
 	mlx_put_image_to_window(world.mlx_ptr, world.win_ptr, world.img.img_ptr, 0, 0);
+	mlx_hook(world.win_ptr, 17, 0, close_window, &world);
+	mlx_hook(world.win_ptr, 2, 0, esc_hook, &world);
 	mlx_loop(world.mlx_ptr);
 
 	return (0);

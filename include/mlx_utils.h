@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   mlx_utils.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 14:42:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 16:47:50 by sinagaki         ###   ########.fr       */
+/*   Created: 2023/09/11 16:43:14 by sinagaki          #+#    #+#             */
+/*   Updated: 2023/09/11 16:47:58 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INCLUDE_H
-# define INCLUDE_H
+#ifndef MLX_UTILS_H
+# define MLX_UTILS_H
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <math.h>
-# include "libft.h"
-# include "get_next_line.h"
-# include "read_map.h"
-# include "utils.h"
-# include "parse.h"
-# include "debug.h"
-# include "color.h"
-# include "vector.h"
-# include "mlx_utils.h"
-#include "mlx.h"
+# include "mini_rt.h"
 
+int	close_window(void *param);
+int	esc_hook(int keycode, void *param);
 
 #endif
