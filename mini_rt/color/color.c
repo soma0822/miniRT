@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:22:35 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 14:25:45 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 14:48:09 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,39 +49,39 @@ t_color	color_normalize(t_color color)
 }
 
 // 各成分から構造体の値を返す
-t_color	color_init(double r, double g, double b)
-{
-	t_color	result;
+// t_color	color_init(double r, double g, double b)
+// {
+// 	t_color	result;
 
-	result.r = r;
-	result.g = g;
-	result.b = b;
-	return (result);
-}
+// 	result.r = r;
+// 	result.g = g;
+// 	result.b = b;
+// 	return (result);
+// }
 
 // "r,g,b" の形式の文字列をパースして color の指すアドレスに格納して, ステータスを返す(0: 成功. -1: 失敗)
-int	get_color_from_rgbstr(t_color *color, char *rgbstr)
-{
-	char	*token;
-	double	values[3];
-	int		i;
+// int	get_color_from_rgbstr(t_color *color, char *rgbstr)
+// {
+// 	char	*token;
+// 	double	values[3];
+// 	int		i;
 
-	i = 0;
-	token = ft_strtok(rgbstr, ",");
-	while (token != NULL && i < 3)
-	{
-		values[i] = ft_atoi(token);
-		token = ft_strtok(NULL, ",");
-		i++;
-	}
-	if (i != 3)
-	{
-		exit(1);  // or return -1; if you don't want to terminate the program
-		// printf("input str: %s\n", rgbstr);
-		// return (put_and_return_err("failed parse string to color"));
-	}
-	color->r = values[0];
-	color->g = values[1];
-	color->b = values[2];
-	return (0);
-}
+// 	i = 0;
+// 	token = ft_strtok(rgbstr, ",");
+// 	while (token != NULL && i < 3)
+// 	{
+// 		values[i] = ft_atoi(token);
+// 		token = ft_strtok(NULL, ",");
+// 		i++;
+// 	}
+// 	if (i != 3)
+// 	{
+// 		exit(1);  // or return -1; if you don't want to terminate the program
+// 		// printf("input str: %s\n", rgbstr);
+// 		// return (put_and_return_err("failed parse string to color"));
+// 	}
+// 	color->r = values[0];
+// 	color->g = values[1];
+// 	color->b = values[2];
+// 	return (0);
+// }

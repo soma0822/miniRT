@@ -3,6 +3,8 @@ NAME = miniRT
 # main.c + find mini_rt/*/*.c | sed 's/\.c/\.c \\/g'
 
 SRCS = main.c\
+mini_rt/color/color.c \
+mini_rt/color/color_calculator.c \
 mini_rt/debug/ft_print_ambient.c \
 mini_rt/debug/ft_print_camera.c \
 mini_rt/debug/ft_print_color.c \
@@ -30,7 +32,9 @@ mini_rt/utils/ft_error.c \
 mini_rt/utils/ft_free_twod_array.c \
 mini_rt/utils/ft_isspace.c \
 mini_rt/utils/ft_lstadd_back.c \
-mini_rt/utils/ft_split_length.c
+mini_rt/utils/ft_split_length.c \
+mini_rt/vector/vector_advanced.c \
+mini_rt/vector/vector_basic.c
 
 INCLUDE = include/
 
