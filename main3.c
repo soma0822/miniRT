@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:59:02 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 18:45:44 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 19:11:20 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,7 @@ int raytracing(t_world *world)
             t_vector dir_vec;
             dir_vec = vector_normalize(vector_sub(screen_vec, *world->camera->pos));
 			
-			t_intersection *intersection = find_intersection(world, world->objects, screen_vec);
-            // 判別式
-            double d = b * b - 4 * a * c;
-            if (d >= 0)
+			if (find_intersection(world, world->objects, screen_vec) == 1)
             {
                 my_mlx_pixel_put(&world->img, x, y, rgb2hex(255, 0, 0));
             }

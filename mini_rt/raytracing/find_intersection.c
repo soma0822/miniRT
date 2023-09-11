@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   find_intersection.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:21:14 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 18:46:15 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 19:10:27 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
 
-t_intersection find_intersection(t_world *world, t_object *object, t_vector screen_vec)
+int find_intersection(t_world *world, t_object *object, t_vector screen_vec)
 {
 	// t_intersection *intersection;
 
@@ -24,6 +24,6 @@ t_intersection find_intersection(t_world *world, t_object *object, t_vector scre
 		return (find_intersection_sphere(world, object, screen_vec));
 	else if (object->type == PLANE)
 		return (find_intersection_plane(world, object, screen_vec));
-	else if (object->type == CYLINDER)
-		return (find_intersection_cylinder(world, object, screen_vec));
+	// else if (object->type == CYLINDER)
+	// 	return (find_intersection_cylinder(world, object, screen_vec));
 }

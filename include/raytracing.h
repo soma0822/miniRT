@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   raytracing.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 14:42:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 19:13:23 by soma             ###   ########.fr       */
+/*   Created: 2023/09/11 19:12:02 by soma              #+#    #+#             */
+/*   Updated: 2023/09/11 19:15:12 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INCLUDE_H
-# define INCLUDE_H
+#ifndef RAYTRACING_H
+# define RAYTRACING_H
 
-# include <stdio.h>
-# include <stdbool.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <math.h>
-# include "libft.h"
-# include "get_next_line.h"
-# include "read_map.h"
-# include "utils.h"
-# include "parse.h"
-# include "debug.h"
-# include "color.h"
-# include "vector.h"
-# include "mlx_utils.h"
-# include "raytracing.h"
-# include "mlx.h"
+# include "mini_rt.h"
+
+int find_intersection(t_world *world, t_object *object, t_vector screen_vec);
+int find_intersection_sphere(t_world *world, t_object *object, t_vector screen_vec);
+int find_intersection_plane(t_world *world, t_object *object, t_vector screen_vec);
 
 #endif
