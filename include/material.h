@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:41:41 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/11 15:43:00 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/11 16:04:18 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,23 @@ typedef struct s_material
 	float	shininess;
 }	t_material;
 
+typedef struct s_shader_params
+{
+	t_color		light_intensity;
+	t_vector	view_dir;
+	t_vector	normal;
+	t_vector	light_dir;
+	t_color		kspec;
+	t_color		kdif;
+	double		shininess;
+}	t_shader_params;
+
 #endif
+
+// t_color light_intensity;  // 光の強度
+// t_vector view_dir;        // 視線の方向
+// t_vector normal;          // 衝突点の法線ベクトル
+// t_vector light_dir;       // 光の方向
+// t_color kspec;            // 鏡面反射係数
+// t_color kdif;             // 拡散反射係数
+// double shininess;         // 光沢度
