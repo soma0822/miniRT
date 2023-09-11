@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_color.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 22:11:40 by soma              #+#    #+#             */
-/*   Updated: 2023/09/10 22:20:39 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/11 14:21:27 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 void	ft_print_color(t_color *color)
 {
-	printf("  color: %d,%d,%d\n", color->r, color->g, color->b);
+	printf("  color: %d,%d,%d\n", (int)(color->r * 255), (int)(color->g * 255), (int)(color->b * 255));
+	printf("  color: %f,%f,%f\n", color->r, color->g, (color->b));
 }

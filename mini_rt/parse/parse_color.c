@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_color.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:54:51 by soma              #+#    #+#             */
-/*   Updated: 2023/09/10 22:45:12 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/11 14:16:28 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ t_color	*parse_color(char *str)
 		ft_error("Memory allocation error!\n");
 	if (ft_split_length(split) != 3)
 		ft_error("Color error!\n");
-	color->r = ft_atoi(split[0]);
-	color->g = ft_atoi(split[1]);
-	color->b = ft_atoi(split[2]);
+	color->r = (double)ft_atoi(split[0]) / (double)255;
+	color->g = (double)ft_atoi(split[1]) / (double)255;
+	color->b = (double)ft_atoi(split[2]) / (double)255;
 	ft_free_twod_array(split);
 	return (color);
 }

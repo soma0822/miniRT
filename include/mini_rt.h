@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_rt.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/10 21:28:29 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/11 14:13:21 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@
 # define PLANE 2
 # define CYLINDER 3
 
+#include <stdio.h> 
 
 typedef struct s_color
 {
-	int				r;
-	int				g;
-	int				b;
+	double	r;
+	double	g;
+	double	b;
 }	t_color;
 
 typedef struct s_world
