@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   include.h                                          :+:      :+:    :+:   */
+/*   esc_hook.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/10 14:42:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 16:47:50 by sinagaki         ###   ########.fr       */
+/*   Created: 2023/09/11 16:46:35 by sinagaki          #+#    #+#             */
+/*   Updated: 2023/09/11 16:53:33 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef INCLUDE_H
-# define INCLUDE_H
+#include "mini_rt.h"
+#include "include.h"
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <math.h>
-# include "libft.h"
-# include "get_next_line.h"
-# include "read_map.h"
-# include "utils.h"
-# include "parse.h"
-# include "debug.h"
-# include "color.h"
-# include "vector.h"
-# include "mlx_utils.h"
-#include "mlx.h"
+int	esc_hook(int keycode, void *param)
+{
+	t_world	*world;
 
-
-#endif
+	world = (t_world *)param;
+	printf("%d\n", keycode);
+	if (keycode == 53)
+	{
+		mlx_destroy_window(world->mlx_ptr, world->win_ptr);
+		exit(0);
+	}
+	return (0);
+}
