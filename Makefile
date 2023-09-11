@@ -2,7 +2,7 @@ NAME = miniRT
 
 # main.c + find mini_rt/*/*.c | sed 's/\.c/\.c \\/g'
 
-SRCS = main.c\
+SRCS = main2.c\
 mini_rt/color/color.c \
 mini_rt/color/color_calculator.c \
 mini_rt/debug/ft_print_ambient.c \
