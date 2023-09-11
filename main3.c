@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:59:02 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 18:28:34 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 18:45:44 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int raytracing(t_world *world)
             t_vector dir_vec;
             dir_vec = vector_normalize(vector_sub(screen_vec, *world->camera->pos));
 			
-			t_intersection *intersection = find_intersection(world->objects, screen_vec);
+			t_intersection *intersection = find_intersection(world, world->objects, screen_vec);
             // 判別式
             double d = b * b - 4 * a * c;
             if (d >= 0)
