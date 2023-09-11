@@ -6,13 +6,13 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:42:38 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/11 16:45:38 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/11 18:15:44 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "material.h"
 
-t_color	calc_specular(t_specular_params params)
+t_color	calc_specular(t_shader_params params)
 {
 	t_vector	reflect_dir;
 	double		spec;
@@ -20,7 +20,7 @@ t_color	calc_specular(t_specular_params params)
 	double		dot_product;
 
 	dot_product = vector_dot(params.light_dir, params.normal);
-	reflect_dir = vector_sub(vector_mult_scalar(params.normal, 2 * dot_product),
+	reflect_dir = vector_sub(vector_mult(params.normal, 2 * dot_product),
 			params.light_dir);
 	reflect_dir = vector_normalize(reflect_dir);
 	spec = vector_dot(params.view_dir, reflect_dir);

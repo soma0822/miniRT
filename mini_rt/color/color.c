@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:22:35 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 15:48:16 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/11 18:11:15 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,15 @@ t_color	color_normalize(t_color color)
 }
 
 // 各成分から構造体の値を返す
-// t_color	color_init(double r, double g, double b)
-// {
-// 	t_color	result;
+t_color	color_init(double r, double g, double b)
+{
+	t_color	result;
 
-// 	result.r = r;
-// 	result.g = g;
-// 	result.b = b;
-// 	return (result);
-// }
+	result.r = r;
+	result.g = g;
+	result.b = b;
+	return (result);
+}
 
 // "r,g,b" の形式の文字列をパースして color の指すアドレスに格納して, ステータスを返す(0: 成功. -1: 失敗)
 // int	get_color_from_rgbstr(t_color *color, char *rgbstr)

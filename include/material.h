@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:41:41 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/11 17:08:00 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/11 18:10:01 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ typedef struct s_shader_params
 	double		shininess;
 }	t_shader_params;
 
+t_color	calc_diffuse(t_shader_params params);
+t_color	calc_specular(t_shader_params params);
+t_color	calculate_light_effect(t_world *world,
+			t_ray ray, t_intersection intersection, t_object *object);
 #endif
 
 // t_color light_intensity;  // 光の強度
