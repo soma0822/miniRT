@@ -6,21 +6,12 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:44:36 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 14:44:42 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 14:57:02 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx.h"
-#include "../includes/color.h"
-#include <stdio.h>
-
-#include <stdint.h>
-
-
-#include "color.h"
-#include "vector.h"
-#include "world.h"
-#include "mlx.h"    // minilibxのヘッダーファイル
+#include "mini_rt.h"
+#include "include.h"
 
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {

@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:42:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 14:50:35 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 15:07:07 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include "debug.h"
 # include "color.h"
 # include "vector.h"
+#include "mlx.h"
 
 
 #endif
