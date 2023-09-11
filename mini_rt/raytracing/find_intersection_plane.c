@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_intersection_plane.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 19:05:07 by soma              #+#    #+#             */
-/*   Updated: 2023/09/11 19:10:12 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/11 19:47:49 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int find_intersection_plane(t_world *world, t_object *object, t_vector screen_ve
 	if (vector_dot(dir_vec, *object->dir) == 0)
 		return (0);
 	double t = vector_dot(vector_sub(*object->pos, *world->camera->pos), *object->dir) / vector_dot(dir_vec, *object->dir);
+
 	if (t > 0)
 		return (1);
 	else

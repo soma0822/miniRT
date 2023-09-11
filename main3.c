@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:59:02 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 19:11:20 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/11 19:50:16 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int raytracing(t_world *world)
             // スクリーン座標からワールド座標への変換
             t_vector screen_vec;
             screen_vec = vector_init(2 * x / world->screen_width - 1.0, 2 * y / world->screen_height - 1.0, 0);
-
             // 方向ベクトル
             t_vector dir_vec;
             dir_vec = vector_normalize(vector_sub(screen_vec, *world->camera->pos));
@@ -66,6 +65,7 @@ int	main(int ac, char **av)
 	world->img.data = (int *)mlx_get_data_addr(world->img.img_ptr, &world->img.bpp, &world->img.line_size, &world->img.endian);
 
 	raytracing(world);
+	ft_print_world(world);
 
 	mlx_put_image_to_window(world->mlx_ptr, world->win_ptr, world->img.img_ptr, 0, 0);
 	mlx_hook(world->win_ptr, 17, 0, close_window, &world);

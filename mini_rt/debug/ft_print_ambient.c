@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_ambient.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 22:09:30 by soma              #+#    #+#             */
-/*   Updated: 2023/09/10 22:11:00 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/11 19:25:59 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,11 @@
 void	ft_print_ambient(t_ambient *ambient)
 {
 	printf("ambient\n");
+	if (ambient == NULL)
+	{
+		printf("  (null)");
+		return ;
+	}
 	printf("  ratio: %f\n", ambient->ratio);
 	ft_print_color(ambient->color);
 }

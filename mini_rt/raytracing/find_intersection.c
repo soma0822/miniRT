@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_intersection.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:21:14 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 19:10:27 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/11 19:16:05 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ int find_intersection(t_world *world, t_object *object, t_vector screen_vec)
 		return (find_intersection_plane(world, object, screen_vec));
 	// else if (object->type == CYLINDER)
 	// 	return (find_intersection_cylinder(world, object, screen_vec));
+	return (0);
 }
