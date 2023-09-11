@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 17:54:31 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/11 17:55:31 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,17 +94,17 @@ typedef struct	s_intersection {
 	// 交点までの距離
 	double		distance;
 	// 交点の位置
-	t_vec3		position;
+	t_vector		position;
 	// 交点における法線ベクトル
-	t_vec3		normal;
+	t_vector		normal;
 }				t_intersection;
 
 // レイ(光線)を表す構造体
 typedef struct	s_ray {
 	// レイの始点
-	t_vec3		start;
+	t_vector		start;
 	// レイの方向ベクトル
-	t_vec3		direction;
+	t_vector		direction;
 }				t_ray;
 
 #endif
