@@ -1,0 +1,7 @@
+{
+	"C_Cpp.dimInactiveRegions": false,
+	"files.associations": {
+		"include.h": "c",
+		"fcntl.h": "c"
+	}
+}
