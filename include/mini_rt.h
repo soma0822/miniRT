@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_rt.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 14:41:24 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 17:53:00 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # define PLANE 2
 # define CYLINDER 3
 
-#include <stdio.h> 
+# include <stdio.h>
 
 typedef struct s_color
 {
@@ -37,11 +37,11 @@ typedef struct s_img
 
 typedef struct s_world
 {
-	void	*mlx_ptr;
-	void	*win_ptr;
-	int		screen_width;
-	int		screen_height;
-	t_img	img;
+	void				*mlx_ptr;
+	void				*win_ptr;
+	int					screen_width;
+	int					screen_height;
+	t_img				img;
 	struct s_ambient	*ambient;
 	struct s_camera		*camera;
 	struct s_light		*light;
@@ -51,32 +51,33 @@ typedef struct s_world
 typedef struct s_ambient
 {
 	double			ratio;
-	struct s_color		*color;
+	struct s_color	*color;
 }	t_ambient;
 
 typedef struct s_camera
 {
 	struct s_vector		*pos;
 	struct s_vector		*dir;
-	double			fov;
+	double				fov;
 }	t_camera;
 
 typedef struct s_light
 {
 	struct s_vector		*pos;
-	double			ratio;
+	double				ratio;
 	struct s_color		*color;
 }	t_light;
 
 typedef struct s_object
 {
-	int					type;
-	struct s_vector		*pos;
-	struct s_vector		*dir;
-	double				diameter;
-	double				height;
-	struct s_color		*color;
-	struct s_object		*next;
+	int						type;
+	struct s_vector			*pos;
+	struct s_vector			*dir;
+	double					diameter;
+	double					height;
+	struct s_color			*color;
+	struct s_object			*next;
+	struct s_shader_params	*sha;
 }	t_object;
 
 typedef struct s_vector
@@ -85,5 +86,17 @@ typedef struct s_vector
 	double			y;
 	double			z;
 }	t_vector;
+
+// 交点を表す構造体
+typedef struct	s_intersection {
+	// 交点が存在するか
+	bool		has_intersection;
+	// 交点までの距離
+	double		distance;
+	// 交点の位置
+	t_vec3		position;
+	// 交点における法線ベクトル
+	t_vec3		normal;
+}				t_intersection;
 
 #endif

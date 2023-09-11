@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:41:41 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/11 16:04:18 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/11 17:08:00 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,6 @@
 # include "utils.h"
 # include "parse.h"
 # include "debug.h"
-
-typedef struct s_material
-{
-	t_color	kdif;
-	t_color	kspe;
-	float	shininess;
-}	t_material;
 
 typedef struct s_shader_params
 {
