@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:44:36 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 14:57:02 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 15:09:03 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int raytracing(t_world *world)
 {
     // 視点位置を表すベクトル
     t_vector camera_vec;
-    camera_vec = vector_init(0, 0, -5);  // スクリーンの少し手前な感じ
+    camera_vec = vector_init(0, 0, -100);  // スクリーンの少し手前な感じ
 
     // 球の中心座標
     t_vector sphere_vec;
