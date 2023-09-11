@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 14:13:21 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/11 14:41:24 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,22 @@ typedef struct s_color
 	double	b;
 }	t_color;
 
+typedef struct s_img
+{
+	void		*img_ptr;
+	int			*data;
+	int			bpp;
+	int			line_size;
+	int			endian;
+}				t_img;
+
 typedef struct s_world
 {
+	void	*mlx_ptr;
+	void	*win_ptr;
+	int		screen_width;
+	int		screen_height;
+	t_img	img;
 	struct s_ambient	*ambient;
 	struct s_camera		*camera;
 	struct s_light		*light;

@@ -2,7 +2,9 @@ NAME = miniRT
 
 # main.c + find mini_rt/*/*.c | sed 's/\.c/\.c \\/g'
 
-SRCS = main.c\
+SRCS = main2.c\
+mini_rt/color/color.c \
+mini_rt/color/color_calculator.c \
 mini_rt/debug/ft_print_ambient.c \
 mini_rt/debug/ft_print_camera.c \
 mini_rt/debug/ft_print_color.c \
@@ -30,7 +32,9 @@ mini_rt/utils/ft_error.c \
 mini_rt/utils/ft_free_twod_array.c \
 mini_rt/utils/ft_isspace.c \
 mini_rt/utils/ft_lstadd_back.c \
-mini_rt/utils/ft_split_length.c
+mini_rt/utils/ft_split_length.c \
+mini_rt/vector/vector_advanced.c \
+mini_rt/vector/vector_basic.c
 
 INCLUDE = include/
 
@@ -40,7 +44,7 @@ OBJS = $(addprefix $(OBJS_DIR),$(SRCS:.c=.o))
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE)
 
 ifeq ($(MAKECMDGOALS), debug)
 CFLAGS += -fsanitize=address -g
@@ -52,11 +56,12 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	make -C libft
-	$(CC) $(CFLAGS) -I$(INCLUDE) $^ $(LIB_PATH) -o $@
+	make -C minilibx_opengl_20191021
+	$(CC) $(CFLAGS) $^ $(LIB_PATH) -Lmlx -lmlx -framework OpenGL -framework AppKit -lm -o $@
 
 $(OBJS_DIR)%.o: %.c
 	mkdir -p $(@D)
-	$(CC) $(CFLAGS) -I$(INCLUDE) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	make fclean -C libft
