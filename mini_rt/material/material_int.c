@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   material_int.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 13:07:34 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/12 15:17:44 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:24:37 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ t_shader_params	calculate_nomal_and_light_dir(t_vector light_position,
 	t_shader_params	material;
 
 	material.normal = vector_normalize(vector_sub(position, sphere_vec));
-	material.light_dir = vector_normalize(vector_sub(light_position, position));
+	material.light_pos_vec = vector_sub(light_position, position);
+	material.light_dir = vector_normalize(material.light_pos_vec);
 	material.kdif = color_init(0, 1.0, 0);
 	material.kspc = color_init(0.9, 0.9, 0.9);
 	material.shininess = SHININESS;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_rt.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/12 15:50:52 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:25:03 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # define PLANE 2
 # define CYLINDER 3
 # define SHININESS 30
+# define EPSILON 0.00001
 
 # include <stdio.h>
 # include <stdbool.h>
@@ -118,6 +119,7 @@ typedef struct s_shader_params
 		// 交点の位置
 	t_vector	position;
 	t_vector	normal;
+	t_vector	light_pos_vec;
 	t_vector	light_dir;
 	t_color		kspc;
 	t_color		kdif;

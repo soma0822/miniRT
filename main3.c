@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:59:02 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/12 16:55:57 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/12 18:14:35 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int raytracing(t_world *world)
             screen_vec = vector_init(2 * x / world->screen_width - 1.0, 2 * y / world->screen_height - 1.0, 0);
             // 方向ベクトル
             world->dir_vec = vector_normalize(vector_sub(screen_vec, *world->camera->pos));
-
 			t_shader_params	*params = find_intersection(world, world->objects, screen_vec);
 			if (params == NULL)
             {
