@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/12 14:05:54 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/12 15:00:31 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # define CYLINDER 3
 
 # include <stdio.h>
+# include <stdbool.h>
 # include <stdbool.h>
 
 typedef struct s_color

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_object.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 22:12:53 by soma              #+#    #+#             */
-/*   Updated: 2023/09/10 22:16:00 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/11 19:27:08 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,11 @@ void	ft_print_object(t_object *object)
 static void	ft_print_sphere(t_object *object)
 {
 	printf("sphere\n");
+	if (object == NULL)
+	{
+		printf("  (null)");
+		return ;
+	}
 	ft_print_vector(object->pos);
 	printf("  radius: %f\n", object->diameter);
 	ft_print_color(object->color);
@@ -42,6 +47,11 @@ static void	ft_print_sphere(t_object *object)
 static void	ft_print_plane(t_object *object)
 {
 	printf("plane\n");
+	if (object == NULL)
+	{
+		printf("  (null)");
+		return ;
+	}
 	ft_print_vector(object->pos);
 	ft_print_vector(object->dir);
 	ft_print_color(object->color);
@@ -50,6 +60,11 @@ static void	ft_print_plane(t_object *object)
 static void	ft_print_cylinder(t_object *object)
 {
 	printf("cylinder\n");
+	if (object == NULL)
+	{
+		printf("  (null)");
+		return ;
+	}
 	ft_print_vector(object->pos);
 	ft_print_vector(object->dir);
 	printf("  diameter: %f\n", object->diameter);
