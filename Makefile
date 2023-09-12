@@ -58,6 +58,7 @@ mini_rt/vector/vector_basic.c \
 
 
 
+
 INCLUDE = include/
 
 OBJS_DIR = objs/
@@ -72,44 +73,12 @@ ifeq ($(MAKECMDGOALS), debug)
 CFLAGS += -fsanitize=address -g
 endif
 
-ifeq ($(MAKECMDGOALS), parse)
-SRCS = main.c\
-mini_rt/color/color.c \
-mini_rt/color/color_calculator.c \
-mini_rt/debug/ft_print_ambient.c \
-mini_rt/debug/ft_print_camera.c \
-mini_rt/debug/ft_print_color.c \
-mini_rt/debug/ft_print_light.c \
-mini_rt/debug/ft_print_object.c \
-mini_rt/debug/ft_print_vector.c \
-mini_rt/debug/ft_print_world.c \
-mini_rt/gnl/get_next_line.c \
-mini_rt/gnl/get_next_line_utils.c \
-mini_rt/mlx_utils/close_hook.c \
-mini_rt/mlx_utils/esc_hook.c \
-mini_rt/parse/parse_ambient.c \
-mini_rt/parse/parse_camera.c \
-mini_rt/parse/parse_color.c \
-mini_rt/parse/parse_cylinder.c \
-mini_rt/parse/parse_error.c \
-mini_rt/parse/parse_light.c \
-mini_rt/parse/parse_plane.c \
-mini_rt/parse/parse_sphere.c \
-mini_rt/parse/parse_vector.c \
-mini_rt/read_map/init_element.c \
-mini_rt/read_map/init_function.c \
-mini_rt/read_map/parse_map.c \
-mini_rt/read_map/read_map.c \
-mini_rt/utils/ft_atof.c \
-mini_rt/utils/ft_error.c \
-mini_rt/utils/ft_free_twod_array.c \
-mini_rt/utils/ft_isspace.c \
-mini_rt/utils/ft_lstadd_back.c \
-mini_rt/utils/ft_split_length.c \
-mini_rt/vector/vector_advanced.c \
-mini_rt/vector/vector_basic.c 
+ifeq ($(MAKECMDGOALS), 1)
+SRCS += main.c
+endif
 
-
+ifeq ($(MAKECMDGOALS), 2)
+SRCS += main2.c
 endif
 
 LIB_PATH = libft/libft.a
@@ -136,4 +105,6 @@ re: fclean all
 
 debug: re
 
-parse: re
+1: re
+
+2: re

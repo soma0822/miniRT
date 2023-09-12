@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:43:11 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/12 16:24:37 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 17:13:31 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ t_shader_params *find_intersection_sphere(t_world *world, t_object *object, t_ve
 
     if (t1 >= 0)
     {
-        return (shader_init(vector_add(*world->camera->pos, vector_mult(dir_vec, t1)), *object, *world));
+        return (shader_init(vector_add(*world->camera->pos, vector_mult(dir_vec, t1)), *object, *world, vector_length(vector_mult(dir_vec, t1))));
     }
     
 	t_vector position = vector_add(*world->camera->pos, vector_mult(dir_vec, t2));
     if (t2 >= 0)
 	{
-        return (shader_init(position, *object, *world));
+        return (shader_init(position, *object, *world, vector_length(vector_mult(dir_vec, t2))));
 	}
     return (NULL);
 }
