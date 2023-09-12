@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   specular.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:42:38 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/12 15:58:22 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 16:50:23 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
 
-t_color	calc_specular(t_shader_params params)
+t_color	calc_specular(t_shader_params params, t_world world)
 {
 	t_vector	reflect_dir;
 	double		spec;
@@ -24,7 +24,7 @@ t_color	calc_specular(t_shader_params params)
 	reflect_dir = vector_sub(vector_mult(params.normal, 2 * dot_product),
 			params.light_dir);
 	reflect_dir = vector_normalize(reflect_dir);
-	spec = vector_dot(params.view_dir, reflect_dir);
+	spec = vector_dot(world.dir_vec, reflect_dir);
 	if (spec < 0.0)
 		spec = 0.0;
 	spec = pow(spec, params.shininess);

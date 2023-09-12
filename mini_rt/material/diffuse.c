@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:48:24 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/12 14:52:33 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/12 16:43:41 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ t_color	calc_diffuse(t_shader_params params)
 	if (dot_product < 0)
 		return (color_init(0, 0, 0));
 	result = color_mult_scalar(params.kdif, dot_product);
-	ft_print_color(&result);
 	// result = color_mult(result, );
 	// ft_print_color(&result);
 	return (result);
