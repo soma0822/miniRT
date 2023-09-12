@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:22:42 by soma              #+#    #+#             */
-/*   Updated: 2023/09/12 11:42:23 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:04:32 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,14 @@ int	find_intersection_cylinder(t_world *world, t_object *object, t_vector screen
 	if (d < 0)
 		return (0);
 	t = (-b - sqrt(d)) / (2 * a);
-	if (t > 0)
+	if (is_in_height(world,object, dir_vec, t))
 		return (1);
 	else
 		return (0);
+}
+
+static int	is_in_heigh(t_world *world, t_object *object, t_vector dir_vec, double t)
+{
+	t_vector point = vector_add(vector_mult(dir_vec,t), *object->pos);
+	
 }
