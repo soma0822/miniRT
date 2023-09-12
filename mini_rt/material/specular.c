@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   specular.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:42:38 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/12 14:00:17 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/12 15:58:22 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "material.h"
+#include "mini_rt.h"
+#include "include.h"
 
 t_color	calc_specular(t_shader_params params)
 {
@@ -28,7 +29,7 @@ t_color	calc_specular(t_shader_params params)
 		spec = 0.0;
 	spec = pow(spec, params.shininess);
 	result = color_mult_scalar(params.kspc, spec);
-	result = color_mult(result, params.light_intensity);
+	// result = color_mult(result, params.light_intensity);
 	return (result);
 }
 

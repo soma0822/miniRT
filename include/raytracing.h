@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raytracing.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 19:12:02 by soma              #+#    #+#             */
-/*   Updated: 2023/09/12 11:32:01 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/12 16:24:04 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 # include "mini_rt.h"
 
-int find_intersection(t_world *world, t_object *object, t_vector screen_vec);
-int find_intersection_sphere(t_world *world, t_object *object, t_vector screen_vec);
-int find_intersection_plane(t_world *world, t_object *object, t_vector screen_vec);
-int	find_intersection_cylinder(t_world *world, t_object *object, t_vector screen_vec);
+t_shader_params *find_intersection(t_world *world, t_object *object, t_vector screen_vec);
+t_shader_params *find_intersection_sphere(t_world *world, t_object *object, t_vector screen_vec);
+t_shader_params *find_intersection_plane(t_world *world, t_object *object, t_vector screen_vec);
+t_shader_params *find_intersection_cylinder(t_world *world, t_object *object, t_vector screen_vec);
+t_shader_params *shader_init(t_vector position, t_object obj, t_world world);
 
 #endif

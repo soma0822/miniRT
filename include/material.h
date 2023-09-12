@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:41:41 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/12 15:01:15 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 15:57:40 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,7 @@
 # include "utils.h"
 # include "parse.h"
 # include "debug.h"
-
-# define SHININESS 30
-
-typedef struct s_shader_params
-{
-	// 交点が存在するか
-	bool		has_intersection;
-	// 交点までの距離
-	double		distance;
-	t_color		light_intensity;
-	t_vector	view_dir;
-		// 交点の位置
-	t_vector	position;
-	t_vector	normal;
-	t_color		kspc;
-	t_color		kdif;
-	double		shininess;
-}	t_shader_params;
+# include "mini_rt.h"
 
 t_shader_params	material_init(t_color kdif, t_color kspe, double shininess);
 t_shader_params	calculate_nomal_and_light_dir(t_vector light_position,

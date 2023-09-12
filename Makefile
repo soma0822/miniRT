@@ -29,6 +29,7 @@ mini_rt/raytracing/find_intersection.c \
 mini_rt/raytracing/find_intersection_cylinder.c \
 mini_rt/raytracing/find_intersection_plane.c \
 mini_rt/raytracing/find_intersection_sphere.c \
+mini_rt/raytracing/shader_init.c \
 mini_rt/read_map/init_element.c \
 mini_rt/read_map/init_function.c \
 mini_rt/read_map/parse_map.c \
@@ -41,6 +42,11 @@ mini_rt/utils/ft_lstadd_back.c \
 mini_rt/utils/ft_split_length.c \
 mini_rt/vector/vector_advanced.c \
 mini_rt/vector/vector_basic.c \
+
+
+
+
+
 
 
 

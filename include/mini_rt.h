@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_rt.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/12 15:00:31 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/12 15:50:52 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define SPHERE 1
 # define PLANE 2
 # define CYLINDER 3
+# define SHININESS 30
 
 # include <stdio.h>
 # include <stdbool.h>
@@ -27,6 +28,13 @@ typedef struct s_color
 	double	g;
 	double	b;
 }	t_color;
+
+typedef struct s_vector
+{
+	double			x;
+	double			y;
+	double			z;
+}	t_vector;
 
 typedef struct s_img
 {
@@ -48,6 +56,7 @@ typedef struct s_world
 	struct s_camera		*camera;
 	struct s_light		*light;
 	struct s_object		*objects;
+	struct	s_vector	dir_vec;
 }	t_world;
 
 typedef struct s_ambient
@@ -82,13 +91,6 @@ typedef struct s_object
 	struct s_shader_params	*sha;
 }	t_object;
 
-typedef struct s_vector
-{
-	double			x;
-	double			y;
-	double			z;
-}	t_vector;
-
 // // 交点を表す構造体
 // typedef struct	s_intersection {
 // 	// 交点が存在するか
@@ -108,5 +110,18 @@ typedef struct	s_ray {
 	// レイの方向ベクトル
 	t_vector		direction;
 }				t_ray;
+
+typedef struct s_shader_params
+{
+	// 交点までの距離
+	double		distance;
+		// 交点の位置
+	t_vector	position;
+	t_vector	normal;
+	t_vector	light_dir;
+	t_color		kspc;
+	t_color		kdif;
+	double		shininess;
+}	t_shader_params;
 
 #endif

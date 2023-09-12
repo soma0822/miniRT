@@ -10,6 +10,7 @@
 		"string_view": "c",
 		"vector": "c",
 		"mlx_utils.h": "c",
-		"algorithm": "c"
+		"algorithm": "c",
+		"__node_handle": "c"
 	}
 }
