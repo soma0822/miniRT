@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_intersection_cylinder.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:22:42 by soma              #+#    #+#             */
-/*   Updated: 2023/09/12 13:25:21 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/12 13:26:23 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int find_intersection_cylinder(t_world *world, t_object *object, t_vector screen
     double b;
     double c;
     double d;
-    double t;
 
     dir_vec = vector_normalize(vector_sub(screen_vec, *world->camera->pos));
     oc = vector_sub(*world->camera->pos, *object->pos);

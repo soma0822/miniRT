@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   material.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:41:41 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/12 14:23:02 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/12 15:01:15 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ typedef struct s_shader_params
 		// 交点の位置
 	t_vector	position;
 	t_vector	normal;
-	t_vector	light_dir;
 	t_color		kspc;
 	t_color		kdif;
 	double		shininess;
