@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   main2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:44:36 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 16:48:39 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 14:52:15 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
+#include "material.h"
+#include "mini_rt.h"
 
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
@@ -55,7 +57,18 @@ int raytracing(t_world *world)
             double d = b * b - 4 * a * c;
             if (d >= 0)
             {
-                my_mlx_pixel_put(&world->img, x, y, rgb2hex(255, 0, 0));
+                // t_color color;
+                
+                t_color tmp;
+                t_shader_params material;
+                t_vector position =  vector_add(camera_vec, vector_mult(dir_vec, (-b + sqrt(d)) / (2 * a)));
+                t_vector light_position = vector_init(-30, 30, 20);
+                material = calculate_nomal_and_light_dir(light_position,
+	            position, sphere_vec);
+                // material = material_init(color_init(0, 1.0, 0),color_init(0.3, 0.3, 0.3), SHININESS);
+                tmp = calculate_diffuse_and_specular(material);
+                // tmp = calculate_light_effect(world, ray, intersection, &object);
+                my_mlx_pixel_put(&world->img, x, y, color2hex(tmp));
             }
             else
             {

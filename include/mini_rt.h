@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 18:08:50 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/12 14:05:54 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,17 +88,17 @@ typedef struct s_vector
 	double			z;
 }	t_vector;
 
-// 交点を表す構造体
-typedef struct	s_intersection {
-	// 交点が存在するか
-	bool		has_intersection;
-	// 交点までの距離
-	double		distance;
-	// 交点の位置
-	t_vector		position;
-	// 交点における法線ベクトル
-	t_vector		normal;
-}				t_intersection;
+// // 交点を表す構造体
+// typedef struct	s_intersection {
+// 	// 交点が存在するか
+// 	bool		has_intersection;
+// 	// 交点までの距離
+// 	double		distance;
+// 	// 交点の位置
+// 	t_vector		position;
+// 	// 交点における法線ベクトル
+// 	t_vector		normal;
+// }				t_intersection;
 
 // レイ(光線)を表す構造体
 typedef struct	s_ray {

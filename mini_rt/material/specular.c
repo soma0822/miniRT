@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:42:38 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/11 18:15:44 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/12 14:00:17 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_color	calc_specular(t_shader_params params)
 	if (spec < 0.0)
 		spec = 0.0;
 	spec = pow(spec, params.shininess);
-	result = color_mult_scalar(params.kspec, spec);
+	result = color_mult_scalar(params.kspc, spec);
 	result = color_mult(result, params.light_intensity);
 	return (result);
 }

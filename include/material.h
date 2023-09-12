@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:41:41 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/11 18:10:01 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/12 14:23:02 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,33 @@
 # include "parse.h"
 # include "debug.h"
 
+# define SHININESS 30
+
 typedef struct s_shader_params
 {
+	// 交点が存在するか
+	bool		has_intersection;
+	// 交点までの距離
+	double		distance;
 	t_color		light_intensity;
 	t_vector	view_dir;
+		// 交点の位置
+	t_vector	position;
 	t_vector	normal;
 	t_vector	light_dir;
-	t_color		kspec;
+	t_color		kspc;
 	t_color		kdif;
 	double		shininess;
 }	t_shader_params;
 
-t_color	calc_diffuse(t_shader_params params);
-t_color	calc_specular(t_shader_params params);
-t_color	calculate_light_effect(t_world *world,
-			t_ray ray, t_intersection intersection, t_object *object);
+t_shader_params	material_init(t_color kdif, t_color kspe, double shininess);
+t_shader_params	calculate_nomal_and_light_dir(t_vector light_position,
+					t_vector position, t_vector sphere_vec);
+t_color			calc_diffuse(t_shader_params params);
+t_color			calc_specular(t_shader_params params);
+t_color			calculate_diffuse_and_specular(t_shader_params params);
+// t_color			calculate_light_effect(t_world *world,
+// 					t_ray ray, t_intersection intersection, t_object *object);
 #endif
 
 // t_color light_intensity;  // 光の強度
