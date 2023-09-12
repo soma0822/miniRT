@@ -14,6 +14,10 @@ mini_rt/debug/ft_print_vector.c \
 mini_rt/debug/ft_print_world.c \
 mini_rt/gnl/get_next_line.c \
 mini_rt/gnl/get_next_line_utils.c \
+mini_rt/material/diffuse.c \
+mini_rt/material/material_int.c \
+mini_rt/material/shading.c \
+mini_rt/material/specular.c \
 mini_rt/mlx_utils/close_hook.c \
 mini_rt/mlx_utils/esc_hook.c \
 mini_rt/parse/parse_ambient.c \
@@ -42,6 +46,8 @@ mini_rt/utils/ft_lstadd_back.c \
 mini_rt/utils/ft_split_length.c \
 mini_rt/vector/vector_advanced.c \
 mini_rt/vector/vector_basic.c \
+
+
 
 
 

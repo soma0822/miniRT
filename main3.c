@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main3.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 17:59:02 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/12 15:49:00 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/12 16:55:57 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
+#include "material.h"
 
 void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
@@ -31,16 +32,18 @@ int raytracing(t_world *world)
             t_vector screen_vec;
             screen_vec = vector_init(2 * x / world->screen_width - 1.0, 2 * y / world->screen_height - 1.0, 0);
             // 方向ベクトル
-            t_vector dir_vec;
-            dir_vec = vector_normalize(vector_sub(screen_vec, *world->camera->pos));
-			
-			if (find_intersection(world, world->objects, screen_vec) == NULL)
+            world->dir_vec = vector_normalize(vector_sub(screen_vec, *world->camera->pos));
+
+			t_shader_params	*params = find_intersection(world, world->objects, screen_vec);
+			if (params == NULL)
             {
-                my_mlx_pixel_put(&world->img, x, y, rgb2hex(0, 0, 0));
+                my_mlx_pixel_put(&world->img, x, y, rgb2hex(0,0,0));
             }
             else
             {
-                my_mlx_pixel_put(&world->img, x, y, rgb2hex(0, 0, 255));
+				t_color tmp;
+				tmp = calculate_light_effect(world, *params);
+                my_mlx_pixel_put(&world->img, x, y, color2hex(tmp));
             }
         }
     }
