@@ -66,7 +66,7 @@ CFLAGS += -fsanitize=address -g
 endif
 
 ifeq ($(MAKECMDGOALS), 1)
-SRCS += main.c
+SRCS += main.c screen_new.c
 endif
 
 ifeq ($(MAKECMDGOALS), 2)
