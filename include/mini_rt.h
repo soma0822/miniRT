@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_rt.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/13 12:59:26 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/13 13:47:03 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,12 +106,12 @@ typedef struct s_object
 // }				t_intersection;
 
 // レイ(光線)を表す構造体
-// typedef struct	s_ray {
-// 	// レイの始点
-// 	t_vector		start;
-// 	// レイの方向ベクトル
-// 	t_vector		direction;
-// }				t_ray;
+typedef struct	s_ray {
+	// レイの始点
+	t_vector		start;
+	// レイの方向ベクトル
+	t_vector		direction;
+}				t_ray;
 
 typedef struct s_shader_params
 {

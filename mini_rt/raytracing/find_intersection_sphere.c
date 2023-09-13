@@ -6,14 +6,14 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:43:11 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/12 17:13:31 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:47:45 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
 
-t_shader_params *find_intersection_sphere(t_world *world, t_object *object, t_vector screen_vec)
+t_shader_params *find_intersection_sphere(t_world *world, t_object *object, t_ray ray)
 {
 	// t_intersection *intersection;
 
@@ -21,8 +21,8 @@ t_shader_params *find_intersection_sphere(t_world *world, t_object *object, t_ve
 	// if (!intersection)
 	// 	ft_error("Memory allocation error!\n");
 	t_vector dir_vec;
-	dir_vec = vector_normalize(vector_sub(screen_vec, *world->camera->pos));
-	t_vector camera2sphere_vec = vector_sub(*world->camera->pos, *object->pos);
+	dir_vec = ray.direction;
+	t_vector camera2sphere_vec = vector_sub(ray.start, *object->pos);
 	double a = vector_length(dir_vec) * vector_length(dir_vec);
 	double b = 2 * vector_dot(camera2sphere_vec, dir_vec);
 	double c = vector_dot(camera2sphere_vec, camera2sphere_vec) - (object->diameter / 2) * (object->diameter / 2);
@@ -32,10 +32,10 @@ t_shader_params *find_intersection_sphere(t_world *world, t_object *object, t_ve
 
     if (t1 >= 0)
     {
-        return (shader_init(vector_add(*world->camera->pos, vector_mult(dir_vec, t1)), *object, *world, vector_length(vector_mult(dir_vec, t1))));
+        return (shader_init(vector_add(ray.start, vector_mult(dir_vec, t1)), *object, *world, vector_length(vector_mult(dir_vec, t1))));
     }
     
-	t_vector position = vector_add(*world->camera->pos, vector_mult(dir_vec, t2));
+	t_vector position = vector_add(ray.start, vector_mult(dir_vec, t2));
     if (t2 >= 0)
 	{
         return (shader_init(position, *object, *world, vector_length(vector_mult(dir_vec, t2))));
