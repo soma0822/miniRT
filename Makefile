@@ -2,8 +2,7 @@ NAME = miniRT
 
 # main.c + find mini_rt/*/*.c | sed 's/\.c/\.c \\/g' | pbcopy
 
-SRCS = main3.c\
-mini_rt/color/color.c \
+SRCS = mini_rt/color/color.c \
 mini_rt/color/color_calculator.c \
 mini_rt/debug/ft_print_ambient.c \
 mini_rt/debug/ft_print_camera.c \
@@ -46,7 +45,7 @@ mini_rt/utils/ft_isspace.c \
 mini_rt/utils/ft_lstadd_back.c \
 mini_rt/utils/ft_split_length.c \
 mini_rt/vector/vector_advanced.c \
-mini_rt/vector/vector_basic.c \
+mini_rt/vector/vector_basic.c 
 
 
 
@@ -72,6 +71,10 @@ endif
 
 ifeq ($(MAKECMDGOALS), 2)
 SRCS += main2.c
+endif
+
+ifeq ($(MAKECMDGOALS), 3)
+SRCS += main3.c
 endif
 
 LIB_PATH = libft/libft.a
@@ -101,3 +104,5 @@ debug: re
 1: re
 
 2: re
+
+3: re
