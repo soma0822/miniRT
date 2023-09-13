@@ -9,6 +9,7 @@ mini_rt/debug/ft_print_camera.c \
 mini_rt/debug/ft_print_color.c \
 mini_rt/debug/ft_print_light.c \
 mini_rt/debug/ft_print_object.c \
+mini_rt/debug/ft_print_shader.c \
 mini_rt/debug/ft_print_vector.c \
 mini_rt/debug/ft_print_world.c \
 mini_rt/gnl/get_next_line.c \
@@ -45,7 +46,8 @@ mini_rt/utils/ft_isspace.c \
 mini_rt/utils/ft_lstadd_back.c \
 mini_rt/utils/ft_split_length.c \
 mini_rt/vector/vector_advanced.c \
-mini_rt/vector/vector_basic.c 
+mini_rt/vector/vector_basic.c \
+
 
 
 

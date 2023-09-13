@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:43:39 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/13 21:45:23 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:49:36 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ bool	has_shadow(t_world world, t_shader_params intersection)
 	ray.start = vector_add(intersection.position, vector_mult(l, EPSILON));
 	ray.direction = l;
 	light_dist = vector_length(ins_to_light) - EPSILON;
-	if (find_intersection(&world, world.objects, ray)
-		&& intersection.distance > 0 && intersection.distance <= light_dist)
+	t_shader_params *tmp;
+	tmp = find_intersection(&world, world.objects, ray);
+	if (tmp && tmp->distance > 0 && tmp->distance <= light_dist)
 	{
 		return (true);
 	}

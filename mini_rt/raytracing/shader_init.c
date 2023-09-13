@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 16:19:32 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/13 21:44:52 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:51:38 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ t_shader_params	*shader_init(t_vector position, t_object obj, t_world world, dou
 	material = ft_calloc(sizeof(t_shader_params), 1);
 	if (!material)
 		ft_error("Memory allocation error!\n");
+	material->type = obj.type;
 	material->distance = distance;
 	material->position = position;
 	material->normal = vector_normalize(vector_sub(position, *obj.pos));

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   debug.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 22:17:00 by soma              #+#    #+#             */
-/*   Updated: 2023/09/10 22:20:28 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/13 21:58:41 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ void	ft_print_light(t_light *light);
 void	ft_print_object(t_object *object);
 void	ft_print_vector(t_vector *vector);
 void	ft_print_world(t_world *world);
+void	ft_print_shader(t_shader_params *param);
 
 #endif
