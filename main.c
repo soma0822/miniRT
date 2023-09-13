@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2023/09/13 14:54:53 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/13 16:26:30 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,23 @@ int raytracing(t_world *world)
 	world->camera->aspect_ratio = world->screen_width / world->screen_height;
 	t_screen screen;
 	screen = screen_new(world->camera, world);
+	ft_print_vector(&screen.x);
+	ft_print_vector(&screen.y);
+	ft_print_vector(&screen.center);
     for (double y = 0; y < world->screen_height; y++)
     {
         for (double x = 0; x < world->screen_width; x++)
         {
             // スクリーン座標からワールド座標への変換
-            t_vector screen_vec;
-			screen_vec = vector_add(vector_mult(screen.x,(2 * x / world->screen_width - 1.0)), vector_mult(screen.y, (2 * y / world->screen_height - 1.0)));
-			screen_vec = vector_add(screen_vec, screen.center);
+			double sw = x - (world->screen_width - 1) / 2;
+			double sh = (world->screen_height - 1) / 2 - y;
+			t_vector xx = vector_mult(screen.x, sw);
+			t_vector yy = vector_mult(screen.y, sh);
+			t_vector ray_direction;
+			ray_direction = vector_normalize(vector_add(screen.center, vector_add(xx, yy)));
             // screen_vec = vector_init((2 * x / world->screen_width - 1.0), 2 * y / world->screen_height - 1.0, 0);
             // 方向ベクトル
-            world->dir_vec = vector_normalize(vector_sub(screen_vec, *world->camera->pos));
+            world->dir_vec = ray_direction;
             t_ray ray;
             ray.direction = world->dir_vec;
             ray.start = *world->camera->pos;
