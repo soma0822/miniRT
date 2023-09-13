@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:42:38 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/12 16:50:23 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/13 16:40:22 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,21 @@
 
 t_color	calc_specular(t_shader_params params, t_world world)
 {
-	t_vector	reflect_dir;
-	double		spec;
+	t_vector	l;
+	t_vector	v;
+	t_vector	r;
 	t_color		result;
-	double		dot_product;
 
-	dot_product = vector_dot(params.light_dir, params.normal);
-	reflect_dir = vector_sub(vector_mult(params.normal, 2 * dot_product),
-			params.light_dir);
-	reflect_dir = vector_normalize(reflect_dir);
-	spec = vector_dot(world.dir_vec, reflect_dir);
-	if (spec < 0.0)
-		spec = 0.0;
-	spec = pow(spec, params.shininess);
-	result = color_mult_scalar(params.kspc, spec);
-	// result = color_mult(result, params.light_intensity);
+	l = vector_normalize(vector_sub(*world.light->pos, params.position));
+	v = vector_mult(world.dir_vec, -1);
+	r = vector_sub(vector_mult(vector_mult(params.normal,
+					vector_dot(params.normal, l)), 2), l);
+	result = color_mult_scalar(params.kspc,
+			pow(vector_dot(v, r), params.shininess));
+	if (vector_dot(v, r) < 0)
+	{
+		result = color_init(0, 0, 0);
+	}
 	return (result);
 }
 
