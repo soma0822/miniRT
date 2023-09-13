@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_sphere.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 21:44:28 by soma              #+#    #+#             */
-/*   Updated: 2023/09/10 21:48:01 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/13 13:11:08 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	parse_sphere(char **split, t_world *world)
 	sphere->pos = parse_vector(split[1]);
 	sphere->diameter = ft_atof(split[2]);
 	sphere->color = parse_color(split[3]);
-	ft_lstadd_back(&world->objects,  sphere);
+	ft_lstadd_back(&world->objects, sphere);
 	return (0);
 }

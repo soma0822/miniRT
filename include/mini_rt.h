@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/12 18:25:03 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/13 12:59:26 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_world
 	struct s_camera		*camera;
 	struct s_light		*light;
 	struct s_object		*objects;
-	struct	s_vector	dir_vec;
+	struct s_vector		dir_vec;
 }	t_world;
 
 typedef struct s_ambient
@@ -71,6 +71,7 @@ typedef struct s_camera
 	struct s_vector		*pos;
 	struct s_vector		*dir;
 	double				fov;
+	double				aspect_ratio;
 }	t_camera;
 
 typedef struct s_light
@@ -105,12 +106,12 @@ typedef struct s_object
 // }				t_intersection;
 
 // レイ(光線)を表す構造体
-typedef struct	s_ray {
-	// レイの始点
-	t_vector		start;
-	// レイの方向ベクトル
-	t_vector		direction;
-}				t_ray;
+// typedef struct	s_ray {
+// 	// レイの始点
+// 	t_vector		start;
+// 	// レイの方向ベクトル
+// 	t_vector		direction;
+// }				t_ray;
 
 typedef struct s_shader_params
 {
