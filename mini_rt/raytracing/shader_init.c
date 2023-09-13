@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 16:19:32 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/13 21:51:38 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 22:40:49 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ t_shader_params	*shader_init(t_vector position, t_object obj, t_world world, dou
 	material->light_dir = \
 	vector_normalize(material->light_pos_vec);
 	material->kdif = *obj.color;
-	material->kspc = color_init(0.9, 0.9, 0.9);
+	if (obj.type == SPHERE)
+		material->kspc = color_init(0.9, 0.9, 0.9);
+	else
+		material->kspc = color_init(0.3, 0.3, 0.3);
 	material->shininess = SHININESS;
 	return (material);
 }

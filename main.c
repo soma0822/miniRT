@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: Invalid date        by                   #+#    #+#             */
-/*   Updated: 2023/09/13 22:01:51 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 22:31:32 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ int raytracing(t_world *world)
 	world->camera->aspect_ratio = world->screen_width / world->screen_height;
 	t_screen screen;
 	screen = screen_new(world->camera, world);
-	ft_print_vector(&screen.x);
-	ft_print_vector(&screen.y);
-	ft_print_vector(&screen.center);
     for (double y = 0; y < world->screen_height; y++)
     {
         for (double x = 0; x < world->screen_width; x++)
