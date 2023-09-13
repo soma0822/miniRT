@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:22:42 by soma              #+#    #+#             */
-/*   Updated: 2023/09/13 13:49:09 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 21:37:41 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ t_shader_params *find_intersection_cylinder(t_world *world, t_object *object, t_
 {
     t_vector dir_vec;
     t_vector oc;
+    t_shader_params *ret;
     double a;
     double b;
     double c;
     double d;
+    ret = NULL;
 
     dir_vec = ray.direction;
     oc = vector_sub(ray.start, *object->pos);
@@ -40,16 +42,17 @@ t_shader_params *find_intersection_cylinder(t_world *world, t_object *object, t_
 
     if (t1 >= 0 && hit_point >= 0 && hit_point <= object->height)
     {
-        return (shader_init(vector_add(ray.start, vector_mult(dir_vec, t1)), *object, *world, vector_length(vector_mult(dir_vec, t1))));
+        ret = shader_init(vector_add(ray.start, vector_mult(dir_vec, t1)), *object, *world, vector_length(vector_mult(dir_vec, t1)));
+        ret->normal = vector_normalize(vector_sub(ret->position, vector_mult(*object->pos, hit_point)));
     }
 
     hit_point = vector_dot(dir_vec, *object->dir) * t2 + vector_dot(oc, *object->dir);
 
-    t_vector position = vector_add(ray.start, vector_mult(dir_vec, t2));
     if (t2 >= 0 && hit_point >= 0 && hit_point <= object->height)
     {
-        return (shader_init(position, *object, *world,vector_length(vector_mult(dir_vec, t2))));
+        ret = shader_init(vector_add(ray.start, vector_mult(dir_vec, t2)), *object, *world, vector_length(vector_mult(dir_vec, t2)));
+        ret->normal = vector_normalize(vector_sub(ret->position, vector_mult(*object->pos, hit_point)));
     }
 
-    return (NULL);
+    return (ret);
 }
