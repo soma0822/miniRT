@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:43:39 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/12 18:54:46 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:43:39 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ t_vector	vector_negate(t_vector a)
 bool	has_shadow(t_world world, t_shader_params intersection)
 {
 	// t_vector	direction_to_light;
+	// t_vector	direction_to_light;
 	double		light_dist;
 	t_object	*current_object;
 
@@ -60,14 +61,17 @@ t_color	calculate_light_effect(t_world *world, t_shader_params params)
 {
 	t_color			ref_ambient;
 	// t_shader_params	light_effect;
+	// t_color			current_light_effect;
 	t_color			ref_result;
+	// t_color			ref_diff_spec;
 
 	ref_result = calculate_diffuse_and_specular(params, *world);
-	// if (has_shadow(world, *world->light, intersection))
+	// if (has_shadow(*world, light_effect))
 	// 	current_light_effect = color_init(0, 0, 0);
-	// accumulated_color = color_add(accumulated_color, current_light_effect);
+	// ref_diff_spec = color_add(ref_diff_spec, current_light_effect);
 	ref_ambient = color_mult(params.kdif, *world->ambient->color);
 	ref_result = color_add(ref_ambient, ref_result);
+	// ref_result = color_add(ref_ambient, ref_diff_spec);
 	return (ref_result);
 }
 
