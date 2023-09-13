@@ -6,14 +6,14 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:21:14 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/12 17:22:50 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:46:42 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
 
-t_shader_params *find_intersection(t_world *world, t_object *object, t_vector screen_vec)
+t_shader_params *find_intersection(t_world *world, t_object *object, t_ray ray)
 {
 	t_object *tmp;
 	t_shader_params *material;
@@ -24,11 +24,11 @@ t_shader_params *find_intersection(t_world *world, t_object *object, t_vector sc
 	while (tmp != NULL)
 	{
 		if (tmp->type == SPHERE)
-			material = find_intersection_sphere(world, tmp, screen_vec);
+			material = find_intersection_sphere(world, tmp, ray);
 		else if (tmp->type == PLANE)
-			material = find_intersection_plane(world, tmp, screen_vec);
+			material = find_intersection_plane(world, tmp, ray);
 		else if (tmp->type == CYLINDER)
-			material = find_intersection_cylinder(world, tmp, screen_vec);
+			material = find_intersection_cylinder(world, tmp, ray);
 		if ((material != NULL) && (ret == NULL || ret->distance > material->distance))
 			ret = material;
 		tmp = tmp->next;

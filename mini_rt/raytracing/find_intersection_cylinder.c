@@ -6,14 +6,14 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 11:22:42 by soma              #+#    #+#             */
-/*   Updated: 2023/09/12 17:13:43 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 13:49:09 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
 
-t_shader_params *find_intersection_cylinder(t_world *world, t_object *object, t_vector screen_vec)
+t_shader_params *find_intersection_cylinder(t_world *world, t_object *object, t_ray ray)
 {
     t_vector dir_vec;
     t_vector oc;
@@ -22,8 +22,8 @@ t_shader_params *find_intersection_cylinder(t_world *world, t_object *object, t_
     double c;
     double d;
 
-    dir_vec = vector_normalize(vector_sub(screen_vec, *world->camera->pos));
-    oc = vector_sub(*world->camera->pos, *object->pos);
+    dir_vec = ray.direction;
+    oc = vector_sub(ray.start, *object->pos);
     a = vector_dot(dir_vec, dir_vec) - pow(vector_dot(dir_vec, *object->dir), 2);
     b = 2 * (vector_dot(dir_vec, oc) - vector_dot(dir_vec, *object->dir) * vector_dot(oc, *object->dir));
     c = vector_dot(oc, oc) - pow(vector_dot(oc, *object->dir), 2) - pow(object->diameter / 2, 2);
@@ -40,12 +40,12 @@ t_shader_params *find_intersection_cylinder(t_world *world, t_object *object, t_
 
     if (t1 >= 0 && hit_point >= 0 && hit_point <= object->height)
     {
-        return (shader_init(vector_add(*world->camera->pos, vector_mult(dir_vec, t1)), *object, *world, vector_length(vector_mult(dir_vec, t1))));
+        return (shader_init(vector_add(ray.start, vector_mult(dir_vec, t1)), *object, *world, vector_length(vector_mult(dir_vec, t1))));
     }
 
     hit_point = vector_dot(dir_vec, *object->dir) * t2 + vector_dot(oc, *object->dir);
 
-    t_vector position = vector_add(*world->camera->pos, vector_mult(dir_vec, t2));
+    t_vector position = vector_add(ray.start, vector_mult(dir_vec, t2));
     if (t2 >= 0 && hit_point >= 0 && hit_point <= object->height)
     {
         return (shader_init(position, *object, *world,vector_length(vector_mult(dir_vec, t2))));
