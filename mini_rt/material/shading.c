@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shading.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:43:39 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/12 18:37:35 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/12 18:54:46 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_vector	vector_negate(t_vector a)
 
 bool	has_shadow(t_world world, t_shader_params intersection)
 {
-	t_vector	direction_to_light;
+	// t_vector	direction_to_light;
 	double		light_dist;
 	t_object	*current_object;
 
@@ -47,10 +47,10 @@ bool	has_shadow(t_world world, t_shader_params intersection)
 	while (current_object)
 	{
 		// 当たり判定をやり、たい
-		if (inter.has_intersection && intersection.distance >= 0 && intersection.distance <= light_dist)
-		{
-			return (true);
-		}
+		// if (inter.has_intersection && intersection.distance >= 0 && intersection.distance <= light_dist)
+		// {
+		// 	return (true);
+		// }
 		current_object = current_object->next;
 	}
 	return (false);
