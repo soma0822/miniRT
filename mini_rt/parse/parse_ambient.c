@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:50:19 by soma              #+#    #+#             */
-/*   Updated: 2023/09/13 12:45:05 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/13 20:00:47 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	parse_ambient(char **split, t_world *world)
 	if (ambient->ratio < 0 || ambient->ratio > 1)
 		ft_error("Ambient ratio error!\n");
 	ambient->color = parse_color(split[2]);
+	*ambient->color = color_mult_scalar(*ambient->color, ambient->ratio);
 	world->ambient = ambient;
 	return (0);
 }

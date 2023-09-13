@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:43:39 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/13 16:58:50 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/13 20:02:54 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,18 @@ t_color	calculate_light_effect(t_world *world, t_shader_params params)
 	t_color			ref_ambient;
 	t_color			current_light_effect;
 	t_color			ref_result;
+	t_color			ref_result2;
 
 	// params.light_dir = vector_negate(params.light_dir);
 	current_light_effect = calculate_diffuse_and_specular(params, *world);
-	ref_result = color_init(0, 0, 0);
+	ref_result2 = color_init(0, 0, 0);
 	if (has_shadow(*world, params))
+	{
 		current_light_effect = color_init(0, 0, 0);
-	ref_result = color_add(ref_result, current_light_effect);
+	}
+	ref_result2 = color_add(ref_result2, current_light_effect);
 	ref_ambient = color_mult(params.kdif, *world->ambient->color);
-	ref_result = color_add(ref_ambient, ref_result);
+	ref_result = color_add(ref_ambient, ref_result2);
 	return (ref_result);
 }
 
