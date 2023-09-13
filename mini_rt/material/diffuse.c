@@ -6,24 +6,24 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:48:24 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/12 16:43:41 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/13 16:45:26 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "material.h"
 
 // 光の強度、法線ベクトル、光源への単位ベクトルを元に、拡散反射の色を計算
-t_color	calc_diffuse(t_shader_params params)
+t_color	calc_diffuse(t_shader_params params, t_world world)
 {
-	t_color	result;
-	double	dot_product;
+	t_vector	l;
+	t_color		result;
+	double		dot_product;
 
-	dot_product = vector_dot(params.normal, params.light_dir);
+	l = vector_normalize(vector_sub(*world.light->pos, params.position));
+	dot_product = vector_dot(params.normal, l);
 	if (dot_product < 0)
-		return (color_init(0, 0, 0));
+		dot_product = 0;
 	result = color_mult_scalar(params.kdif, dot_product);
-	// result = color_mult(result, );
-	// ft_print_color(&result);
 	return (result);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shading.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:43:39 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/13 13:43:39 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 16:58:50 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_color	calculate_diffuse_and_specular(t_shader_params params, t_world world)
 	t_color	diffuse_color;
 	t_color	specular_color;
 
-	diffuse_color = calc_diffuse(params);
+	diffuse_color = calc_diffuse(params, world);
 	specular_color = calc_specular(params, world);
 	return (color_add(diffuse_color, specular_color));
 }
@@ -35,24 +35,20 @@ t_vector	vector_negate(t_vector a)
 
 bool	has_shadow(t_world world, t_shader_params intersection)
 {
-	// t_vector	direction_to_light;
-	// t_vector	direction_to_light;
+	t_ray		ray;
+	t_vector	ins_to_light;
+	t_vector	l;
 	double		light_dist;
-	t_object	*current_object;
 
-	intersection.position = vector_add(intersection.position,
-			vector_mult(vector_normalize(intersection.light_dir), EPSILON));
-	intersection.light_dir = vector_normalize(intersection.light_dir);
-	light_dist = vector_length(intersection.light_pos_vec) - EPSILON;
-	current_object = world.objects;
-	while (current_object)
+	ins_to_light = vector_sub(*world.light->pos, intersection.position);
+	l = vector_normalize(ins_to_light);
+	ray.start = vector_add(intersection.position, vector_mult(l, EPSILON));
+	ray.direction = l;
+	light_dist = vector_length(ins_to_light) - EPSILON;
+	if (find_intersection(&world, world.objects, ray)
+		&& intersection.distance >= 0 && intersection.distance <= light_dist)
 	{
-		// 当たり判定をやり、たい
-		// if (inter.has_intersection && intersection.distance >= 0 && intersection.distance <= light_dist)
-		// {
-		// 	return (true);
-		// }
-		current_object = current_object->next;
+		return (true);
 	}
 	return (false);
 }
@@ -60,18 +56,17 @@ bool	has_shadow(t_world world, t_shader_params intersection)
 t_color	calculate_light_effect(t_world *world, t_shader_params params)
 {
 	t_color			ref_ambient;
-	// t_shader_params	light_effect;
-	// t_color			current_light_effect;
+	t_color			current_light_effect;
 	t_color			ref_result;
-	// t_color			ref_diff_spec;
 
-	ref_result = calculate_diffuse_and_specular(params, *world);
-	// if (has_shadow(*world, light_effect))
-	// 	current_light_effect = color_init(0, 0, 0);
-	// ref_diff_spec = color_add(ref_diff_spec, current_light_effect);
+	// params.light_dir = vector_negate(params.light_dir);
+	current_light_effect = calculate_diffuse_and_specular(params, *world);
+	ref_result = color_init(0, 0, 0);
+	if (has_shadow(*world, params))
+		current_light_effect = color_init(0, 0, 0);
+	ref_result = color_add(ref_result, current_light_effect);
 	ref_ambient = color_mult(params.kdif, *world->ambient->color);
 	ref_result = color_add(ref_ambient, ref_result);
-	// ref_result = color_add(ref_ambient, ref_diff_spec);
 	return (ref_result);
 }
 
