@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_rt.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/13 13:47:03 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/13 14:45:39 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,14 @@ typedef struct s_shader_params
 	t_color		kdif;
 	double		shininess;
 }	t_shader_params;
+
+typedef struct s_screen
+{
+	t_vector	x;
+	t_vector	y;
+	t_vector	center;
+}				t_screen;
+
+t_screen   screen_new(t_camera *camera, t_world *world);
 
 #endif
