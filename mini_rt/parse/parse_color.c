@@ -6,7 +6,7 @@
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:54:51 by soma              #+#    #+#             */
-/*   Updated: 2023/09/14 15:42:26 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/14 19:28:20 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,7 @@ t_color	*parse_color(char *str)
 	color->r = (double)ft_atoi(split[0]) / (double)255;
 	color->g = (double)ft_atoi(split[1]) / (double)255;
 	color->b = (double)ft_atoi(split[2]) / (double)255;
-	if (color->r > 1 || color->g > 1 || color->b > 1)
-		ft_error("Color error!\n");
+	if (color->r > 1 || color)
 	ft_free_twod_array(split);
 	return (color);
 }
