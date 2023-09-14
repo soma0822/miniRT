@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_cylinder.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 21:22:05 by soma              #+#    #+#             */
-/*   Updated: 2023/09/13 22:38:07 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:50:34 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	parse_cylinder(char **split, t_world *world)
 	cylinder->type = CYLINDER;
 	cylinder->pos = parse_vector(split[1]);
 	cylinder->dir = parse_vector(split[2]);
+	if (vector_length(*cylinder->dir) != 1)
+		ft_error("Cylinder direction error!\n");
 	cylinder->diameter = ft_atof(split[3]);
 	cylinder->height = ft_atof(split[4]);
 	cylinder->color = parse_color(split[5]);

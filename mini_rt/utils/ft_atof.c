@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
+/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 21:54:29 by soma              #+#    #+#             */
-/*   Updated: 2023/09/14 14:27:23 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/14 15:36:40 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ static double	ft_atof_decimal(char *nbr, double decimal)
 		decimal += (*nbr - '0') * i;
 		nbr++;
 	}
+	if (*nbr != '\0')
+		ft_error("Invalid number\n");
 	return (decimal);
 }
 
@@ -48,6 +50,8 @@ double	ft_atof(char *nbr)
 	}
 	if (*nbr == '.')
 		nbr++;
+	if (*nbr == '\0')
+		ft_error("Invalid number\n");
 	decimal = ft_atof_decimal(nbr, decimal);
 	return (flag * (integer + decimal));
 }

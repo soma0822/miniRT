@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_camera.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 21:10:09 by soma              #+#    #+#             */
-/*   Updated: 2023/09/13 22:38:08 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:43:55 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ int	parse_camera(char **split, t_world *world)
 		ft_error("Memory allocation error!\n");
 	camera->pos = parse_vector(split[1]);
 	camera->dir = parse_vector(split[2]);
+	if (vector_length(*camera->dir) != 1)
+		ft_error("Camera direction error!\n");
 	camera->fov = ft_atof(split[3]);
-	if (camera->fov < 0 || camera->fov > 180)
+	if (camera->fov < 0 || camera->fov >= 180)
 		ft_error("Camera fov error!\n");
 	world->camera = camera;
 	return (0);

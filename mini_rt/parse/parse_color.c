@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_color.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
+/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 18:54:51 by soma              #+#    #+#             */
-/*   Updated: 2023/09/13 13:10:50 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/14 15:42:26 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_color	*parse_color(char *str)
 	color->r = (double)ft_atoi(split[0]) / (double)255;
 	color->g = (double)ft_atoi(split[1]) / (double)255;
 	color->b = (double)ft_atoi(split[2]) / (double)255;
+	if (color->r > 1 || color->g > 1 || color->b > 1)
+		ft_error("Color error!\n");
 	ft_free_twod_array(split);
 	return (color);
 }
@@ -47,11 +49,7 @@ static int	color_check(char *str)
 	while (str[i] != '\n' && str[i] != '\0')
 	{
 		if (ft_isdigit(str[i]) == 0 && str[i] != ',')
-		{
-			printf("%s\n", str);
-			printf("str[%d]: %i\n", i, str[i]);
 			return (1);
-		}
 		i++;
 	}
 	return (0);

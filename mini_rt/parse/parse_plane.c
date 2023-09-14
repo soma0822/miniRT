@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_plane.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 21:42:20 by soma              #+#    #+#             */
-/*   Updated: 2023/09/13 22:37:52 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:49:44 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	parse_plane(char **split, t_world *world)
 	plane->type = PLANE;
 	plane->pos = parse_vector(split[1]);
 	plane->dir = parse_vector(split[2]);
+	if (vector_length(*plane->dir) != 1)
+		ft_error("Plane direction error!\n");
 	plane->color = parse_color(split[3]);
 	ft_lstadd_back(&world->objects, plane);
 	return (0);
