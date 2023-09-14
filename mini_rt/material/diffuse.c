@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:48:24 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/13 16:45:26 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/14 13:18:10 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_color	calc_diffuse(t_shader_params params, t_world world)
 
 	l = vector_normalize(vector_sub(*world.light->pos, params.position));
 	dot_product = vector_dot(params.normal, l);
-	if (dot_product < 0)
+	if (dot_product < EPSILON)
 		dot_product = 0;
 	result = color_mult_scalar(params.kdif, dot_product);
 	return (result);
