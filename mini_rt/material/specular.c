@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   specular.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:42:38 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/14 13:33:43 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/14 16:25:15 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ t_color	calc_specular(t_shader_params params, t_world world)
 	t_vector	r;
 	t_color		result;
 
+	if (!world.light)
+		return (color_init(0, 0, 0));
 	l = vector_normalize(vector_sub(*world.light->pos, params.position));
 	v = vector_mult(world.dir_vec, -1);
 	r = vector_sub(vector_mult(vector_mult(params.normal,

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   diffuse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:48:24 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/14 13:18:10 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/14 16:24:25 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_color	calc_diffuse(t_shader_params params, t_world world)
 	t_color		result;
 	double		dot_product;
 
+	if (!world.light)
+		return (color_init(0,0,0));
 	l = vector_normalize(vector_sub(*world.light->pos, params.position));
 	dot_product = vector_dot(params.normal, l);
 	if (dot_product < EPSILON)
