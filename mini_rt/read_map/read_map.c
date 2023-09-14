@@ -6,7 +6,7 @@
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:23:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/14 15:38:07 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/14 16:02:09 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,22 @@ t_world	*read_map(char *file_name)
 		free(line);
 	}
 	close(fd);
+	map_error_check(world);
 	return (world);
+}
+
+void	map_error_check(t_world *world)
+{
+	if (!world->camera)
+		ft_error("Map error!\n");
+	else if (!world->ambient && !world->light)
+		ft_error("Map error!\n");
+	else if (!world->ambient)
+	{
+		world->ambient = (t_ambient *)ft_calloc(sizeof(t_ambient), 1);
+		if (world->ambient == NULL)
+			ft_error("Memory allocation error!\n");
+		world->ambient->ratio = 0;
+		world->ambient->color = parse_color("0,0,0");
+	}
 }
