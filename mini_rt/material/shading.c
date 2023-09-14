@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:43:39 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/14 16:19:54 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:48:36 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,10 @@ static bool	has_shadow(t_world world, t_shader_params intersection)
 	tmp = find_intersection(&world, world.objects, ray);
 	if (tmp && tmp->distance > EPSILON && tmp->distance <= light_dist)
 	{
+		free(tmp);
 		return (true);
 	}
+	free(tmp);
 	return (false);
 }
 

@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:21:14 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/14 16:32:14 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:47:34 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ t_shader_params	*find_intersection(t_world *world, t_object *object, t_ray ray)
 			free(ret);
 			ret = material;
 		}
+		else
+			free(material);
 		tmp = tmp->next;
 	}
 	return (ret);
