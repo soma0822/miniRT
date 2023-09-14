@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 16:53:07 by soma              #+#    #+#             */
-/*   Updated: 2023/09/14 20:01:13 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 22:53:17 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,13 @@ int	parse_map(char *str, t_world *world)
 	if (split == NULL)
 		ft_error("Memory allocation error!\n");
 	if (split[0] == NULL)
+	{
+		free(str);
+		free(split);
 		return (0);
+	}
 	i = 0;
-	while (ft_strncmp(split[0], element[i], 3) != 0 && i < 6)
+	while (i < 6 && ft_strncmp(split[0], element[i], 3) != 0)
 		i++;
 	function_array[i](split, world);
 	ft_free_twod_array(split);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_intersection_cylinder.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:01:36 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/14 15:20:51 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/14 21:43:14 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,10 @@ static t_shader_params	*select_closest_intersection(t_shader_params *ret1,
 	if (ret1)
 		return (ret1);
 	if (ret2)
+	{
+		ret2->normal = vector_mult(ret2->normal, -1);
 		return (ret2);
+	}
 	return (NULL);
 }
 

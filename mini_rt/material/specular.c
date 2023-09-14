@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:42:38 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/14 16:25:15 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 22:42:05 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ t_color	calc_specular(t_shader_params params, t_world world)
 	v = vector_mult(world.dir_vec, -1);
 	r = vector_sub(vector_mult(vector_mult(params.normal,
 					vector_dot(params.normal, l)), 2), l);
-	result = color_mult_scalar(params.kspc,
-			pow(vector_dot(v, r), params.shininess));
+	result = color_mult_scalar(color_mult_scalar(params.kspc,
+				pow(vector_dot(v, r), params.shininess)), world.light->ratio);
 	if (vector_dot(v, r) < EPSILON)
 	{
 		result = color_init(0, 0, 0);

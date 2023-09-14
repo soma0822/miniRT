@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:23:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/14 20:00:39 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 22:40:37 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ t_world	*read_map(char *file_name)
 static void	map_error_check(t_world *world)
 {
 	if (!world->camera)
+	{
+		system("leaks -q miniRT");
 		ft_error("Map error!\n");
+	}
 	else if (!world->ambient && !world->light)
 		ft_error("Map error!\n");
 	else if (!world->ambient)

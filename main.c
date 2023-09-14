@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:23:33 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/14 16:31:01 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 22:26:24 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ static int	raytracing(t_world *world)
 		while (x < world->screen_width)
 		{
 			ray = calculate_ray(world, screen, x, y);
+			params = NULL;
 			params = find_intersection(world, world->objects, ray);
 			if (params == NULL)
 				my_mlx_pixel_put(&world->img, x, y, rgb2hex(0, 0, 0));

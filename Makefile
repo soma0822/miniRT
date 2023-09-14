@@ -55,7 +55,7 @@ OBJS_DIR = objs/
 
 OBJS = $(addprefix $(OBJS_DIR),$(SRCS:.c=.o))
 
-CC = cc
+CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE)
 

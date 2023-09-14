@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:48:24 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/14 20:03:13 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 22:42:55 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ t_color	calc_diffuse(t_shader_params params, t_world world)
 	dot_product = vector_dot(params.normal, l);
 	if (dot_product < EPSILON)
 		dot_product = 0;
-	result = color_mult_scalar(params.kdif, dot_product);
+	result = color_mult_scalar
+		(color_mult_scalar(params.kdif, dot_product), world.light->ratio);
 	return (result);
 }
 
