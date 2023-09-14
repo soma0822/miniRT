@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   shading.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:43:39 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/13 21:49:36 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 13:17:51 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ bool	has_shadow(t_world world, t_shader_params intersection)
 	light_dist = vector_length(ins_to_light) - EPSILON;
 	t_shader_params *tmp;
 	tmp = find_intersection(&world, world.objects, ray);
-	if (tmp && tmp->distance > 0 && tmp->distance <= light_dist)
+	if (tmp && tmp->distance > EPSILON && tmp->distance <= light_dist)
 	{
 		return (true);
 	}
