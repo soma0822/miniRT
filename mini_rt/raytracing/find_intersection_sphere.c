@@ -3,42 +3,54 @@
 /*                                                        :::      ::::::::   */
 /*   find_intersection_sphere.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:43:11 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/13 13:47:45 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 15:10:13 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
 
-t_shader_params *find_intersection_sphere(t_world *world, t_object *object, t_ray ray)
+// 2次方程式を計算する関数
+static t_qe	calculate_quadratic(t_ray ray, t_object *object)
 {
-	// t_intersection *intersection;
+	t_vector	dir_vec;
+	t_vector	camera2sphere_vec;
+	t_qe		qe;
 
-	// intersection = ft_calloc(sizeof(t_intersection), 1);
-	// if (!intersection)
-	// 	ft_error("Memory allocation error!\n");
-	t_vector dir_vec;
 	dir_vec = ray.direction;
-	t_vector camera2sphere_vec = vector_sub(ray.start, *object->pos);
-	double a = vector_length(dir_vec) * vector_length(dir_vec);
-	double b = 2 * vector_dot(camera2sphere_vec, dir_vec);
-	double c = vector_dot(camera2sphere_vec, camera2sphere_vec) - (object->diameter / 2) * (object->diameter / 2);
-	double d = b * b - 4 * a * c;
-	double t1 = (-b - sqrt(d)) / (2 * a);
-	double t2 = (-b + sqrt(d)) / (2 * a);
+	camera2sphere_vec = vector_sub(ray.start, *object->pos);
+	qe.a = vector_length(dir_vec) * vector_length(dir_vec);
+	qe.b = 2 * vector_dot(camera2sphere_vec, dir_vec);
+	qe.c = vector_dot(camera2sphere_vec, camera2sphere_vec) - \
+			(object->diameter / 2) * (object->diameter / 2);
+	qe.d = qe.b * qe.b - 4 * qe.a * qe.c;
+	return (qe);
+}
 
-    if (t1 >= 0)
-    {
-        return (shader_init(vector_add(ray.start, vector_mult(dir_vec, t1)), *object, *world, vector_length(vector_mult(dir_vec, t1))));
-    }
-    
-	t_vector position = vector_add(ray.start, vector_mult(dir_vec, t2));
-    if (t2 >= 0)
+t_shader_params	*find_intersection_sphere(t_world *world,
+			t_object *object, t_ray ray)
+{
+	t_vector	dir_vec;
+	t_vector	position;
+	t_qe		qe;
+
+	dir_vec = ray.direction;
+	qe = calculate_quadratic(ray, object);
+	qe.t1 = (-qe.b - sqrt(qe.d)) / (2 * qe.a);
+	qe.t2 = (-qe.b + sqrt(qe.d)) / (2 * qe.a);
+	if (qe.t1 >= 0)
 	{
-        return (shader_init(position, *object, *world, vector_length(vector_mult(dir_vec, t2))));
+		return (shader_init(vector_add(ray.start, vector_mult(dir_vec, qe.t1)),
+				*object, *world, vector_length(vector_mult(dir_vec, qe.t1))));
 	}
-    return (NULL);
+	position = vector_add(ray.start, vector_mult(dir_vec, qe.t2));
+	if (qe.t2 >= 0)
+	{
+		return (shader_init(position, *object, *world,
+				vector_length(vector_mult(dir_vec, qe.t2))));
+	}
+	return (NULL);
 }

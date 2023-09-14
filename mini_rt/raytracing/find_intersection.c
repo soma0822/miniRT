@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   find_intersection.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:21:14 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/13 13:46:42 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:31:52 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
 
-t_shader_params *find_intersection(t_world *world, t_object *object, t_ray ray)
+t_shader_params	*find_intersection(t_world *world, t_object *object, t_ray ray)
 {
-	t_object *tmp;
-	t_shader_params *material;
-	t_shader_params *ret;
+	t_object		*tmp;
+	t_shader_params	*material;
+	t_shader_params	*ret;
 
 	tmp = object;
 	ret = NULL;
@@ -29,7 +29,8 @@ t_shader_params *find_intersection(t_world *world, t_object *object, t_ray ray)
 			material = find_intersection_plane(world, tmp, ray);
 		else if (tmp->type == CYLINDER)
 			material = find_intersection_cylinder(world, tmp, ray);
-		if ((material != NULL) && (ret == NULL || ret->distance > material->distance))
+		if ((material != NULL) && (ret == NULL || \
+				ret->distance > material->distance))
 			ret = material;
 		tmp = tmp->next;
 	}

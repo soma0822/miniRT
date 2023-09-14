@@ -6,14 +6,15 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:43:39 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/14 14:18:28 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/14 15:10:51 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "material.h"
 #include "mini_rt.h"
 
-t_color	calculate_diffuse_and_specular(t_shader_params params, t_world world)
+static t_color	calculate_diffuse_and_specular(t_shader_params params,
+					t_world world)
 {
 	t_color	diffuse_color;
 	t_color	specular_color;
@@ -23,7 +24,7 @@ t_color	calculate_diffuse_and_specular(t_shader_params params, t_world world)
 	return (color_add(diffuse_color, specular_color));
 }
 
-bool	has_shadow(t_world world, t_shader_params intersection)
+static bool	has_shadow(t_world world, t_shader_params intersection)
 {
 	t_ray			ray;
 	t_vector		ins_to_light;

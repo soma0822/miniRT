@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/14 14:20:21 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/14 14:41:07 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,5 +118,16 @@ typedef struct s_screen
 	t_vector	y;
 	t_vector	center;
 }				t_screen;
+
+// QuadraticEquation
+typedef struct s_qe
+{
+	double		a;
+	double		b;
+	double		c;
+	double		d;
+	double		t1;
+	double		t2;
+}				t_qe;
 
 #endif
