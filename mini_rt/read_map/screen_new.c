@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   screen_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:09:26 by soma              #+#    #+#             */
-/*   Updated: 2023/09/13 16:59:37 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 19:32:38 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,8 @@ t_screen   screen_new(t_camera *camera, t_world *world)
 	screen.y = vector_normalize(vector_cross(screen.x, vector_mult(screen.center, -1)));
 	if (camera->dir->x == 0 && camera->dir->y != 0 && camera->dir->z == 0)
 	{
-		if (camera->dir->y > 0)
-		{
-			screen.x = vector_init(-1, 0, 0);
-			screen.y = vector_init(0, 0, -1);
-		}
-		else
-		{
-			screen.x = vector_init(1, 0, 0);
-			screen.y = vector_init(0, 0, 1);
-		}
+		screen.x = vector_init(1, 0, 0);
+		screen.y = vector_init(0, 0, 1);
 	}
 	return (screen);
 }
