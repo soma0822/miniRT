@@ -6,12 +6,14 @@
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:23:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/14 16:02:09 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/14 16:02:32 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
+
+static void	map_error_check(t_world *world);
 
 t_world	*read_map(char *file_name)
 {
@@ -39,7 +41,7 @@ t_world	*read_map(char *file_name)
 	return (world);
 }
 
-void	map_error_check(t_world *world)
+static void	map_error_check(t_world *world)
 {
 	if (!world->camera)
 		ft_error("Map error!\n");
