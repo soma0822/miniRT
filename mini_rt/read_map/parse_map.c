@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 16:53:07 by soma              #+#    #+#             */
-/*   Updated: 2023/09/14 15:38:52 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/14 20:01:13 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	parse_map(char *str, t_world *world)
 {
 	char	**split;
 	char	element[6][3];
-	int (*function_array[7])(char **, t_world *);
+	int		(*function_array[7])(char **, t_world *);
 	int		i;
 
 	if (str == NULL)

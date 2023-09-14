@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:48:24 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/14 16:24:25 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 20:03:13 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_color	calc_diffuse(t_shader_params params, t_world world)
 	double		dot_product;
 
 	if (!world.light)
-		return (color_init(0,0,0));
+		return (color_init(0, 0, 0));
 	l = vector_normalize(vector_sub(*world.light->pos, params.position));
 	dot_product = vector_dot(params.normal, l);
 	if (dot_product < EPSILON)

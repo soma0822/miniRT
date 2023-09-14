@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 21:53:12 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/13 21:59:29 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 19:57:37 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,4 @@ void	ft_print_shader(t_shader_params *param)
 	ft_print_vector(&param->light_pos_vec);
 	printf("light_dir:");
 	ft_print_vector(&param->light_dir);
-	
 }
