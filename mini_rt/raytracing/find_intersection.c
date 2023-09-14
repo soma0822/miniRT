@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_intersection.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 18:21:14 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/14 14:31:52 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/14 16:32:14 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,10 @@ t_shader_params	*find_intersection(t_world *world, t_object *object, t_ray ray)
 			material = find_intersection_cylinder(world, tmp, ray);
 		if ((material != NULL) && (ret == NULL || \
 				ret->distance > material->distance))
+		{
+			free(ret);
 			ret = material;
+		}
 		tmp = tmp->next;
 	}
 	return (ret);

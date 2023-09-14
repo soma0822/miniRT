@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:23:33 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/14 16:17:45 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 16:31:01 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ static int	raytracing(t_world *world)
 				my_mlx_pixel_put(&world->img, x, y,
 					color2hex(calculate_light_effect(world, *params)));
 			x++;
+			free(params);
 		}
 		y++;
 	}
