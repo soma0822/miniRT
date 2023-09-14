@@ -1,4 +1,4 @@
 objs/
 libft/objs/
 miniRT
-*.rt
+# *.rt
