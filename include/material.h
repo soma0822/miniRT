@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:41:41 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/13 16:43:47 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/14 14:22:17 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@
 # include "debug.h"
 # include "mini_rt.h"
 
-t_shader_params	material_init(t_color kdif, t_color kspe, double shininess);
-t_shader_params	calculate_nomal_and_light_dir(t_vector light_position,
-					t_vector position, t_vector sphere_vec);
 t_color			calc_diffuse(t_shader_params params, t_world world);
 t_color			calc_specular(t_shader_params params, t_world world);
 t_color			calculate_light_effect(t_world *world, t_shader_params params);

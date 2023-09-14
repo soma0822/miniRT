@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atof.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 21:54:29 by soma              #+#    #+#             */
-/*   Updated: 2023/09/10 22:23:21 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/14 14:27:23 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,12 @@ static double	ft_atof_decimal(char *nbr, double decimal)
 double	ft_atof(char *nbr)
 {
 	double	flag;
-	double integer = 0;
-	double decimal = 0;
+	double	integer;
+	double	decimal;
 
 	flag = 1;
+	integer = 0;
+	decimal = 0;
 	if (*nbr == '-' || *nbr == '+')
 	{
 		if (*nbr == '-')

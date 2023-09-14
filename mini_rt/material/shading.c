@@ -6,14 +6,15 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 15:43:39 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/14 13:17:51 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/14 15:10:51 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "material.h"
 #include "mini_rt.h"
 
-t_color	calculate_diffuse_and_specular(t_shader_params params, t_world world)
+static t_color	calculate_diffuse_and_specular(t_shader_params params,
+					t_world world)
 {
 	t_color	diffuse_color;
 	t_color	specular_color;
@@ -23,29 +24,19 @@ t_color	calculate_diffuse_and_specular(t_shader_params params, t_world world)
 	return (color_add(diffuse_color, specular_color));
 }
 
-t_vector	vector_negate(t_vector a)
+static bool	has_shadow(t_world world, t_shader_params intersection)
 {
-	t_vector	result;
-
-	result.x = -a.x;
-	result.y = -a.y;
-	result.z = -a.z;
-	return (result);
-}
-
-bool	has_shadow(t_world world, t_shader_params intersection)
-{
-	t_ray		ray;
-	t_vector	ins_to_light;
-	t_vector	l;
-	double		light_dist;
+	t_ray			ray;
+	t_vector		ins_to_light;
+	t_vector		l;
+	t_shader_params	*tmp;
+	double			light_dist;
 
 	ins_to_light = vector_sub(*world.light->pos, intersection.position);
 	l = vector_normalize(ins_to_light);
 	ray.start = vector_add(intersection.position, vector_mult(l, EPSILON));
 	ray.direction = l;
 	light_dist = vector_length(ins_to_light) - EPSILON;
-	t_shader_params *tmp;
 	tmp = find_intersection(&world, world.objects, ray);
 	if (tmp && tmp->distance > EPSILON && tmp->distance <= light_dist)
 	{
@@ -61,7 +52,6 @@ t_color	calculate_light_effect(t_world *world, t_shader_params params)
 	t_color			ref_result;
 	t_color			ref_result2;
 
-	// params.light_dir = vector_negate(params.light_dir);
 	current_light_effect = calculate_diffuse_and_specular(params, *world);
 	ref_result2 = color_init(0, 0, 0);
 	if (has_shadow(*world, params))

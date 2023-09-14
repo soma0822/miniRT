@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_rt.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/13 21:51:09 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:41:07 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,32 +93,16 @@ typedef struct s_object
 	struct s_shader_params	*sha;
 }	t_object;
 
-// // 交点を表す構造体
-// typedef struct	s_intersection {
-// 	// 交点が存在するか
-// 	bool		has_intersection;
-// 	// 交点までの距離
-// 	double		distance;
-// 	// 交点の位置
-// 	t_vector		position;
-// 	// 交点における法線ベクトル
-// 	t_vector		normal;
-// }				t_intersection;
-
-// レイ(光線)を表す構造体
-typedef struct	s_ray {
-	// レイの始点
+typedef struct s_ray
+{
 	t_vector		start;
-	// レイの方向ベクトル
 	t_vector		direction;
 }				t_ray;
 
 typedef struct s_shader_params
 {
-	// 交点までの距離
 	int			type;
 	double		distance;
-		// 交点の位置
 	t_vector	position;
 	t_vector	normal;
 	t_vector	light_pos_vec;
@@ -135,6 +119,15 @@ typedef struct s_screen
 	t_vector	center;
 }				t_screen;
 
-t_screen   screen_new(t_camera *camera, t_world *world);
+// QuadraticEquation
+typedef struct s_qe
+{
+	double		a;
+	double		b;
+	double		c;
+	double		d;
+	double		t1;
+	double		t2;
+}				t_qe;
 
 #endif

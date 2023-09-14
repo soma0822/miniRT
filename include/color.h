@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:13:44 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/12 12:57:19 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/14 14:19:03 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,5 @@ int			rgb2hex(int r, int g, int b);
 uint32_t	color2hex(t_color color);
 t_color		color_normalize(t_color color);
 t_color		color_init(double red, double green, double blue);
-// int			get_color_from_rgbstr(t_color *color, char *rgbstr);
 
 #endif

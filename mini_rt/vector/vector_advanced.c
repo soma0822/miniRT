@@ -6,7 +6,7 @@
 /*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/11 14:30:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 18:15:29 by khorike          ###   ########.fr       */
+/*   Updated: 2023/09/14 14:27:54 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,29 +50,3 @@ t_vector	vector_normalize(t_vector a)
 	result.z = a.z / magnitude;
 	return (result);
 }
-
-// int	get_vector_from_str(t_vector *vec, char *str)
-// {
-// 	char	*token;
-// 	double	values[3];
-// 	int		i;
-
-// 	i = 0;
-// 	token = ft_strtok(str, ",");
-// 	while (token != NULL && i < 3)
-// 	{
-// 		values[i] = ft_atof(token);
-// 		token = ft_strtok(NULL, ",");
-// 		i++;
-// 	}
-// 	if (i != 3)
-// 	{
-// 		exit(1);
-// 		// printf("input str: %s\n", str);
-// 		// return (put_and_return_err("failed parse string to vector"));
-// 	}
-// 	vec->x = values[0];
-// 	vec->y = values[1];
-// 	vec->z = values[2];
-// 	return (0);
-// }

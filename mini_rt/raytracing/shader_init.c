@@ -3,17 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   shader_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 16:19:32 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/13 22:40:49 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/14 14:29:48 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_rt.h"
 #include "include.h"
 
-t_shader_params	*shader_init(t_vector position, t_object obj, t_world world, double distance)
+t_shader_params	*shader_init(t_vector position, t_object obj,
+					t_world world, double distance)
 {
 	t_shader_params	*material;
 
