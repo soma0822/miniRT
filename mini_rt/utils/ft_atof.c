@@ -6,7 +6,7 @@
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 21:54:29 by soma              #+#    #+#             */
-/*   Updated: 2023/09/14 15:36:40 by soma             ###   ########.fr       */
+/*   Updated: 2023/09/14 15:52:33 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,11 @@ double	ft_atof(char *nbr)
 		integer = integer * 10 + *nbr++ - '0';
 	}
 	if (*nbr == '.')
+	{
 		nbr++;
-	if (*nbr == '\0')
-		ft_error("Invalid number\n");
+		if (*nbr == '\0')
+			ft_error("Invalid number\n");
+	}
 	decimal = ft_atof_decimal(nbr, decimal);
 	return (flag * (integer + decimal));
 }
