@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   screen_new.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 14:09:26 by soma              #+#    #+#             */
-/*   Updated: 2023/09/14 20:00:31 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/15 12:32:12 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_screen	screen_new(t_camera *camera, t_world *world)
 {
 	t_screen	screen;
 
+	world->camera->aspect_ratio = world->screen_width / world->screen_height;
 	screen.center = vector_mult(vector_normalize(*camera->dir),
 			world->screen_width / 2 / tan((camera->fov / 2) / 180 * M_PI));
 	screen.x.x = screen.center.z
