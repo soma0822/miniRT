@@ -2,51 +2,52 @@ NAME = miniRT
 
 # main.c + find mini_rt/*/*.c | sed 's/\.c/\.c \\/g' | pbcopy
 
-SRCS = main.c \
-mini_rt/color/color.c \
-mini_rt/color/color_calculator.c \
-mini_rt/debug/ft_print_ambient.c \
-mini_rt/debug/ft_print_camera.c \
-mini_rt/debug/ft_print_color.c \
-mini_rt/debug/ft_print_light.c \
-mini_rt/debug/ft_print_object.c \
-mini_rt/debug/ft_print_shader.c \
-mini_rt/debug/ft_print_vector.c \
-mini_rt/debug/ft_print_world.c \
-mini_rt/gnl/get_next_line.c \
-mini_rt/gnl/get_next_line_utils.c \
-mini_rt/material/diffuse.c \
-mini_rt/material/shading.c \
-mini_rt/material/specular.c \
-mini_rt/mlx_utils/close_hook.c \
-mini_rt/mlx_utils/esc_hook.c \
-mini_rt/parse/parse_ambient.c \
-mini_rt/parse/parse_camera.c \
-mini_rt/parse/parse_color.c \
-mini_rt/parse/parse_cylinder.c \
-mini_rt/parse/parse_error.c \
-mini_rt/parse/parse_light.c \
-mini_rt/parse/parse_plane.c \
-mini_rt/parse/parse_sphere.c \
-mini_rt/parse/parse_vector.c \
-mini_rt/raytracing/find_intersection.c \
-mini_rt/raytracing/find_intersection_cylinder.c \
-mini_rt/raytracing/find_intersection_plane.c \
-mini_rt/raytracing/find_intersection_sphere.c \
-mini_rt/raytracing/shader_init.c \
-mini_rt/read_map/init_element.c \
-mini_rt/read_map/init_function.c \
-mini_rt/read_map/parse_map.c \
-mini_rt/read_map/read_map.c \
-mini_rt/read_map/screen_new.c \
-mini_rt/utils/ft_atof.c \
-mini_rt/utils/ft_error.c \
-mini_rt/utils/ft_free_twod_array.c \
-mini_rt/utils/ft_isspace.c \
-mini_rt/utils/ft_lstadd_back.c \
-mini_rt/utils/ft_split_length.c \
-mini_rt/vector/vector_advanced.c \
-mini_rt/vector/vector_basic.c \
+SRCS = srcs/main.c \
+srcs/color/color.c \
+srcs/color/color_calculator.c \
+srcs/debug/ft_print_ambient.c \
+srcs/debug/ft_print_camera.c \
+srcs/debug/ft_print_color.c \
+srcs/debug/ft_print_light.c \
+srcs/debug/ft_print_object.c \
+srcs/debug/ft_print_shader.c \
+srcs/debug/ft_print_vector.c \
+srcs/debug/ft_print_world.c \
+srcs/gnl/get_next_line.c \
+srcs/gnl/get_next_line_utils.c \
+srcs/material/diffuse.c \
+srcs/material/shading.c \
+srcs/material/specular.c \
+srcs/mlx_utils/close_hook.c \
+srcs/mlx_utils/esc_hook.c \
+srcs/parse/parse_ambient.c \
+srcs/parse/parse_camera.c \
+srcs/parse/parse_color.c \
+srcs/parse/parse_cylinder.c \
+srcs/parse/parse_error.c \
+srcs/parse/parse_light.c \
+srcs/parse/parse_plane.c \
+srcs/parse/parse_sphere.c \
+srcs/parse/parse_vector.c \
+srcs/raytracing/find_intersection.c \
+srcs/raytracing/find_intersection_cylinder.c \
+srcs/raytracing/find_intersection_plane.c \
+srcs/raytracing/find_intersection_sphere.c \
+srcs/raytracing/shader_init.c \
+srcs/read_map/init_element.c \
+srcs/read_map/init_function.c \
+srcs/read_map/parse_map.c \
+srcs/read_map/read_map.c \
+srcs/read_map/screen_new.c \
+srcs/utils/ft_atof.c \
+srcs/utils/ft_error.c \
+srcs/utils/ft_free_twod_array.c \
+srcs/utils/ft_isspace.c \
+srcs/utils/ft_lstadd_back.c \
+srcs/utils/ft_split_length.c \
+srcs/vector/vector_advanced.c \
+srcs/vector/vector_basic.c \
+
 
 
 INCLUDE = include/
