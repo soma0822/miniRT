@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:23:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/14 22:40:37 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/16 11:56:03 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "include.h"
 
 static void	map_error_check(t_world *world);
+static int	is_dark(t_world *world);
 
 t_world	*read_map(char *file_name)
 {
@@ -58,4 +59,20 @@ static void	map_error_check(t_world *world)
 		world->ambient->ratio = 0;
 		world->ambient->color = parse_color("0,0,0");
 	}
+	if (is_dark(world))
+		ft_error("Completely in the dark!\n");
 }
+
+static int	is_dark(t_world *world)
+{
+	t_ambient	*amb;
+	t_light		*light;
+
+	amb = world->ambient;
+	light = world->light;
+	if ((!amb || amb->ratio == 0.0 || (amb->color->b == 0 && amb->color->g == 0 && amb->color->r == 0))
+		&& (!light || light->ratio == 0.0)
+		&& world->objects)
+		return (1);
+	return (0);
+ }
