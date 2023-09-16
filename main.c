@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
+/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:23:33 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/14 22:26:24 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/15 12:32:38 by khorike          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,11 @@ static int	raytracing(t_world *world)
 	t_ray			ray;
 	t_shader_params	*params;
 
-	world->camera->aspect_ratio = world->screen_width / world->screen_height;
 	screen = screen_new(world->camera, world);
 	while (y < world->screen_height)
 	{
-		x = 0;
-		while (x < world->screen_width)
+		x = -1;
+		while (++x < world->screen_width)
 		{
 			ray = calculate_ray(world, screen, x, y);
 			params = NULL;
@@ -72,7 +71,6 @@ static int	raytracing(t_world *world)
 			else
 				my_mlx_pixel_put(&world->img, x, y,
 					color2hex(calculate_light_effect(world, *params)));
-			x++;
 			free(params);
 		}
 		y++;
