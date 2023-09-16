@@ -6,7 +6,7 @@
 /*   By: sinagaki <sinagaki@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:23:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/16 11:56:03 by sinagaki         ###   ########.fr       */
+/*   Updated: 2023/09/16 11:59:41 by sinagaki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,10 @@ static int	is_dark(t_world *world)
 
 	amb = world->ambient;
 	light = world->light;
-	if ((!amb || amb->ratio == 0.0 || (amb->color->b == 0 && amb->color->g == 0 && amb->color->r == 0))
+	if ((!amb || amb->ratio == 0.0
+			|| (amb->color->b == 0 && amb->color->g == 0 && amb->color->r == 0))
 		&& (!light || light->ratio == 0.0)
 		&& world->objects)
 		return (1);
 	return (0);
- }
+}
