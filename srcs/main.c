@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
+/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/14 15:23:33 by khorike           #+#    #+#             */
-/*   Updated: 2023/09/15 12:32:38 by khorike          ###   ########.fr       */
+/*   Updated: 2023/12/06 15:21:46 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	raytracing(t_world *world)
 	t_ray			ray;
 	t_shader_params	*params;
 
-	screen = screen_new(world->camera, world);
+	screen = get_screen_start_position(*world);
 	while (y < world->screen_height)
 	{
 		x = -1;

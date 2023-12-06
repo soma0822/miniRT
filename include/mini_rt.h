@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mini_rt.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: khorike <khorike@student.42.fr>            +#+  +:+       +#+        */
+/*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:40:49 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/14 14:41:07 by khorike          ###   ########.fr       */
+/*   Updated: 2023/12/06 15:20:54 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,5 +129,7 @@ typedef struct s_qe
 	double		t1;
 	double		t2;
 }				t_qe;
+
+t_screen get_screen_start_position(t_world world);
 
 #endif

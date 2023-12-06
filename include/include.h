@@ -6,7 +6,7 @@
 /*   By: soma <soma@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 14:42:20 by sinagaki          #+#    #+#             */
-/*   Updated: 2023/09/11 19:13:23 by soma             ###   ########.fr       */
+/*   Updated: 2023/12/06 15:22:56 by soma             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,6 @@
 # include "vector.h"
 # include "mlx_utils.h"
 # include "raytracing.h"
-# include "mlx.h"
+# include "../minilibx_opengl_20191021/mlx.h"
 
 #endif

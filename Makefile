@@ -47,6 +47,7 @@ srcs/utils/ft_lstadd_back.c \
 srcs/utils/ft_split_length.c \
 srcs/vector/vector_advanced.c \
 srcs/vector/vector_basic.c \
+srcs/debug/emu.c
 
 
 
@@ -58,7 +59,7 @@ OBJS = $(addprefix $(OBJS_DIR),$(SRCS:.c=.o))
 
 CC = gcc
 
-CFLAGS = -Wall -Wextra -Werror -I$(INCLUDE)
+CFLAGS = -I$(INCLUDE)
 
 ifeq ($(MAKECMDGOALS), debug)
 CFLAGS += -fsanitize=address -g
